@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>TV ES</name>
+    <events>
+        <include>Game Loop</include>
+        <comment>Seleciona a ação a ser executada por padrão na sala atual</comment>
+        <event-block sid="703869505502280">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="668293826355523" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="519469526901526" type="player">
+                    <param id="0" name="Instance variable">açãoAnim</param>
+                    <param id="1" name="Value">&quot;interage&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Ajustes iniciais</comment>
+        <event-block sid="378927721517618">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="807254070196597" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="772166229266490" type="antenaTopo">
+                    <param id="0" name="Pin to">TV</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="6" name="Set speed" sid="956244978501515" type="antenaTopo">
+                    <param id="0" name="Speed">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="549716345684721" type="TVconeVisao">
+                    <param id="0" name="Pin to">TV</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="371308600581401" type="imagensTV">
+                    <param id="0" name="Pin to">TV</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action id="5" name="Set frame" sid="194021592988960" type="imagensTV">
+                    <param id="0" name="Frame number">4</param>
+                </action>
+            </actions>
+        </event-block>
+        <variable constant="0" name="canalTV" sid="961632861666812" static="0" type="number">5</variable>
+        <event-group description="" inactive="1" sid="737668449078431" title="tvLigada">
+            <sub-events>
+                <event-block sid="262510691486316">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="249321391913720" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="989310389463042" type="imagensTV">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="523302384585990" type="System">
+                            <param id="0" name="Group name">&quot;LigaTV&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="25" name="Play at object" sid="601547546705682" type="Audio">
+                            <param id="0" name="Audio file">tvNoise</param>
+                            <param id="1" name="Loop">1</param>
+                            <param id="2" name="Volume">0</param>
+                            <param id="3" name="Object">TV</param>
+                            <param id="4" name="Inner angle">360</param>
+                            <param id="5" name="Outer angle">360</param>
+                            <param id="6" name="Outer gain">0</param>
+                            <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="589181310821332">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="485172580799837" type="Personagem">
+                            <param id="0" name="Object">TV</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="164881371270883" type="player">
+                            <param id="0" name="Instance variable">ação</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="489496137486301">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="193194590137341" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="540346020589351" type="System">
+                                    <param id="0" name="Variable">canalTV</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action behavior="Pathfinding" id="0" name="Find path" sid="222739566775184" type="TV">
+                                    <param id="0" name="X">random(walkArea.X + ((tv.Width)/2), (walkArea.X + walkArea.Width) - ((tv.Width)/2))</param>
+                                    <param id="1" name="Y">random(walkArea.Y + ((tv.Height)/2), (walkArea.Y + walkArea.Height) - ((tv.Height)/2))</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="708284374817770" type="imagensTV">
+                                    <param id="0" name="Frame number">canalTV</param>
+                                </action>
+                                <action id="0" name="Set text" sid="891146675094319" type="TextDebugLocal">
+                                    <param id="0" name="Text">canalTV</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="444895068209849" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="545070222430614">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="0" name="On path found" sid="251911545292641" type="TV" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="1" name="Move along path" sid="772900804391970" type="TV" />
+                        <action id="4" name="Set animation" sid="621080562146443" type="TV">
+                            <param id="0" name="Animation">&quot;andar&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="6" name="Set speed" sid="408100639159542" type="antenaTopo">
+                            <param id="0" name="Speed">18</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="833263421015842">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="5" name="On arrived" sid="225963392312437" type="TV" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="325569571108204" type="TV">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="6" name="Set speed" sid="173335119890891" type="antenaTopo">
+                            <param id="0" name="Speed">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="664861623496083">
+                    <conditions>
+                        <condition behavior="Pathfinding" id="4" inverted="1" name="Is moving along path" sid="740894682150414" type="TV" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="734582250044636">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="761333000984153" type="System">
+                                    <param id="0" name="Interval (seconds)">random(2,4)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="788906049527122" type="TVconeVisao">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="11" name="Set collisions enabled" sid="376956711005743" type="TVconeVisao">
+                                    <param id="0" name="Collisions">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="925587704596526" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="606516231813499" type="TVconeVisao">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="11" name="Set collisions enabled" sid="575199564483507" type="TVconeVisao">
+                                    <param id="0" name="Collisions">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="929094621131067">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="927975163877053" type="TVconeVisao">
+                            <param id="0" name="Object">Personagem</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="714760266740885" type="TV">
+                            <param id="0" name="X">random(walkArea.X + ((tv.Width)/2), (walkArea.X + walkArea.Width) - ((tv.Width)/2))</param>
+                            <param id="1" name="Y">random(walkArea.Y + ((tv.Height)/2), (walkArea.Y + walkArea.Height) - ((tv.Height)/2))</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="971865626213278" title="LigaTV">
+            <sub-events>
+                <event-block sid="436431385689997">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="832788025765442" type="Personagem">
+                            <param id="0" name="Object">TV</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="851409357710616" type="player">
+                            <param id="0" name="Instance variable">ação</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="422747491857459" type="System">
+                            <param id="0" name="Group name">&quot;tvLigada&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="678525455055829">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="478307641762910" type="System">
+                    <param id="0" name="Variable">canalTV</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Set group active" sid="176162918768617" type="System">
+                    <param id="0" name="Group name">&quot;mostraPortas&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" inactive="1" sid="768481544077220" title="mostraPortas">
+            <sub-events>
+                <event-block sid="353262249377260">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="445975185261618" type="System">
+                            <param id="0" name="Object">cortina</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="313315997693726" type="System">
+                            <param id="0" name="Object to create">fumaca</param>
+                            <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                            <param id="2" name="X">cortina.X</param>
+                            <param id="3" name="Y">cortina.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="889873792416370">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="972247568057680" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="254651487799172" type="System">
+                            <param id="0" name="Object to create">fumaca</param>
+                            <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                            <param id="2" name="X">TV.X</param>
+                            <param id="3" name="Y">Tv.Y</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="383089342980319" type="System">
+                            <param id="0" name="Object to create">Chave</param>
+                            <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                            <param id="2" name="X">TV.X</param>
+                            <param id="3" name="Y">tv.Y</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="909909380794367" type="TV" />
+                        <action id="-9" name="Destroy" sid="123998708936765" type="antenaTopo" />
+                        <action id="-9" name="Destroy" sid="685629882540640" type="TVconeVisao" />
+                        <action id="-9" name="Destroy" sid="370396892613878" type="cortina" />
+                        <action id="-9" name="Destroy" sid="871682158410621" type="imagensTV" />
+                        <action id="-15" name="Set visible" sid="571511342344954" type="porta">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="569465106330833" title="Som ambiente 5">
+            <sub-events>
+                <event-block sid="615993922276962">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="332200894288258" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="616222689558036" type="Audio">
+                            <param id="0" name="Audio file">salaCha</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-40</param>
+                            <param id="1" name="Tag (optional)">&quot;somAmbiente&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="177258284797346">
+                    <conditions>
+                        <condition id="-3" name="On end of layout" sid="458847063024673" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="6" name="Stop" sid="452956186527778" type="Audio">
+                            <param id="0" name="Tag">&quot;somAmbiente&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

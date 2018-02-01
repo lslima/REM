@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout order="0">Cha</layout>
+        <layout order="1">Hub</layout>
+        <layout order="3">Fogo</layout>
+        <layout order="4">Campo</layout>
+        <layout order="5">TV</layout>
+        <layout order="6">RuaBriga</layout>
+        <layout order="7">Cadeia</layout>
+        <layout order="8">Igreja</layout>
+        <layout order="9">Fábrica</layout>
+        <layout order="10">Labirinto 1</layout>
+        <layout order="11">Labirinto 2</layout>
+        <layout order="12">Labirinto 3</layout>
+        <layout active="1" order="13">Bairro</layout>
+        <layout order="14">Escola</layout>
+        <layout order="15">Quarto</layout>
+        <layout order="17">Floresta2</layout>
+        <layout order="24">Inicio</layout>
+        <layout order="25">LayersGlobais</layout>
+        <layout order="27">Floresta</layout>
+        <event-sheet order="2">Fogo ES</event-sheet>
+        <event-sheet order="16">Game Loop</event-sheet>
+        <event-sheet order="18">Floresta ES</event-sheet>
+        <event-sheet order="19">Hub ES</event-sheet>
+        <event-sheet order="20">Igreja ES</event-sheet>
+        <event-sheet order="21">Escola ES</event-sheet>
+        <event-sheet order="22">Quarto ES</event-sheet>
+        <event-sheet order="23">RuaBriga ES</event-sheet>
+        <event-sheet order="26">Event sheet 1</event-sheet>
+        <event-sheet order="28">Bairro ES</event-sheet>
+        <event-sheet order="29">Campo ES</event-sheet>
+        <event-sheet order="30">Cha ES</event-sheet>
+        <event-sheet order="31">Labirinto 1 ES</event-sheet>
+        <event-sheet order="32">Cadeia ES</event-sheet>
+        <event-sheet order="33">Fabrica ES</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="0" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="0">
+        <family expanded="0" name="BG_Labirinto" />
+        <family expanded="1" name="PortaCelas" />
+    </families-expanded>
+    <folders-expanded>
+        <folder expanded="1" path="object-folder/" />
+        <folder expanded="1" path="object-folder/Marcadores/" />
+        <folder expanded="1" path="object-folder/BGs/" />
+        <folder expanded="1" path="object-folder/MENU/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="1" path="file-folder/" />
+        <folder expanded="0" path="sound-folder/" />
+        <folder expanded="0" path="music-folder/" />
+        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/bordas_hit/" />
+        <folder expanded="1" path="animation-folder/hit_destroyBoxes/" />
+        <folder expanded="1" path="animation-folder/NPCspawner/" />
+        <folder expanded="1" path="animation-folder/parede_hit/" />
+        <folder expanded="1" path="animation-folder/TriggerDir/" />
+        <folder expanded="1" path="animation-folder/pontoDePassagem/" />
+        <folder expanded="1" path="animation-folder/porta_hit/" />
+        <folder expanded="1" path="animation-folder/detonaAnimais/" />
+        <folder expanded="1" path="animation-folder/TriggerEsq/" />
+        <folder expanded="1" path="animation-folder/spawPoint/" />
+        <folder expanded="1" path="animation-folder/REMLOGO/" />
+        <folder expanded="1" path="animation-folder/controles/" />
+        <folder expanded="1" path="animation-folder/começar/" />
+        <folder expanded="1" path="animation-folder/spbre/" />
+        <folder expanded="1" path="animation-folder/piscaOut/" />
+        <folder expanded="1" path="animation-folder/piscaIn/" />
+        <folder expanded="1" path="animation-folder/player/" />
+        <folder expanded="1" path="animation-folder/Chave/" />
+        <folder expanded="1" path="animation-folder/Personagem/" />
+        <folder expanded="1" path="animation-folder/Vignette/" />
+        <folder expanded="1" path="animation-folder/pedras/" />
+        <folder expanded="1" path="animation-folder/grama/" />
+        <folder expanded="1" path="animation-folder/PisoLodge/" />
+        <folder expanded="1" path="animation-folder/Mesa/" />
+        <folder expanded="1" path="animation-folder/cadeira/" />
+        <folder expanded="1" path="animation-folder/cortina/" />
+        <folder expanded="1" path="animation-folder/xicara/" />
+        <folder expanded="1" path="animation-folder/tapete/" />
+        <folder expanded="1" path="animation-folder/portaLado/" />
+        <folder expanded="1" path="animation-folder/arvoreCercada/" />
+        <folder expanded="1" path="animation-folder/poste/" />
+        <folder expanded="1" path="animation-folder/casa/" />
+        <folder expanded="1" path="animation-folder/muro/" />
+        <folder expanded="1" path="animation-folder/lataDeLixo/" />
+        <folder expanded="1" path="animation-folder/Carro/" />
+        <folder expanded="1" path="animation-folder/loja_01/" />
+        <folder expanded="1" path="animation-folder/loja_02/" />
+        <folder expanded="1" path="animation-folder/mercado/" />
+        <folder expanded="1" path="animation-folder/TV/" />
+        <folder expanded="1" path="animation-folder/Fogueira/" />
+        <folder expanded="1" path="animation-folder/pedraRaio/" />
+        <folder expanded="1" path="animation-folder/cela/" />
+        <folder expanded="1" path="animation-folder/portaCela/" />
+        <folder expanded="1" path="animation-folder/celaTras/" />
+        <folder expanded="1" path="animation-folder/celaVerso/" />
+        <folder expanded="1" path="animation-folder/pisoLiso/" />
+        <folder expanded="1" path="animation-folder/celaVersoTras/" />
+        <folder expanded="1" path="animation-folder/portaCelaVerso/" />
+        <folder expanded="1" path="animation-folder/portaCelaSaida/" />
+        <folder expanded="1" path="animation-folder/paredeCadeia/" />
+        <folder expanded="1" path="animation-folder/bancoDeIgreja/" />
+        <folder expanded="1" path="animation-folder/pulpito/" />
+        <folder expanded="1" path="animation-folder/coluna/" />
+        <folder expanded="1" path="animation-folder/palco/" />
+        <folder expanded="1" path="animation-folder/tapeteIgreja/" />
+        <folder expanded="1" path="animation-folder/portaIgreja/" />
+        <folder expanded="1" path="animation-folder/portico/" />
+        <folder expanded="1" path="animation-folder/portico2/" />
+        <folder expanded="1" path="animation-folder/esteira/" />
+        <folder expanded="1" path="animation-folder/bocaEsteira/" />
+        <folder expanded="1" path="animation-folder/amassador/" />
+        <folder expanded="1" path="animation-folder/amassadorSuporte1/" />
+        <folder expanded="1" path="animation-folder/amassadorSuporte2/" />
+        <folder expanded="1" path="animation-folder/caixa/" />
+        <folder expanded="1" path="animation-folder/empurrador/" />
+        <folder expanded="1" path="animation-folder/empurradorSuporte/" />
+        <folder expanded="1" path="animation-folder/empurradorSuporte2/" />
+        <folder expanded="1" path="animation-folder/NPCFabrica/" />
+        <folder expanded="1" path="animation-folder/caminhao/" />
+        <folder expanded="1" path="animation-folder/caminhao2/" />
+        <folder expanded="1" path="animation-folder/engrenagens/" />
+        <folder expanded="1" path="animation-folder/parapeitoEsteira/" />
+        <folder expanded="1" path="animation-folder/parapeitosMesanino/" />
+        <folder expanded="1" path="animation-folder/pisoMesanino/" />
+        <folder expanded="1" path="animation-folder/baseEsteira/" />
+        <folder expanded="1" path="animation-folder/cercaFabrica/" />
+        <folder expanded="1" path="animation-folder/parapeitoEsteira2/" />
+        <folder expanded="1" path="animation-folder/rampaEscorregaCaixa/" />
+        <folder expanded="1" path="animation-folder/funil/" />
+        <folder expanded="1" path="animation-folder/playerDir/" />
+        <folder expanded="1" path="animation-folder/esteira2/" />
+        <folder expanded="1" path="animation-folder/geradorDeTiles/" />
+        <folder expanded="1" path="animation-folder/TVconeVisao/" />
+        <folder expanded="1" path="animation-folder/antenaTopo/" />
+        <folder expanded="1" path="animation-folder/imagensTV/" />
+        <folder expanded="1" path="animation-folder/Animais/" />
+        <folder expanded="1" path="animation-folder/porta/" />
+        <folder expanded="1" path="animation-folder/portao/" />
+        <folder expanded="1" path="animation-folder/NPCBrigaBase/" />
+        <folder expanded="1" path="animation-folder/NPCBrigaFigura/" />
+        <folder expanded="1" path="animation-folder/fogo/" />
+        <folder expanded="1" path="animation-folder/NPCFogo/" />
+        <folder expanded="1" path="animation-folder/casa2/" />
+        <folder expanded="1" path="animation-folder/casa3/" />
+        <folder expanded="1" path="animation-folder/casa4/" />
+        <folder expanded="1" path="animation-folder/escolaParedefundo/" />
+        <folder expanded="1" path="animation-folder/escolaParedeFrente/" />
+        <folder expanded="1" path="animation-folder/carteira/" />
+        <folder expanded="1" path="animation-folder/mesaProfessor/" />
+        <folder expanded="1" path="animation-folder/extintor/" />
+        <folder expanded="1" path="animation-folder/quadroDeAvisos/" />
+        <folder expanded="1" path="animation-folder/portaEscola/" />
+        <folder expanded="1" path="animation-folder/portaEscola2/" />
+        <folder expanded="1" path="animation-folder/corredorEscola/" />
+        <folder expanded="1" path="animation-folder/quarto_/" />
+        <folder expanded="1" path="animation-folder/NPCCadeia/" />
+        <folder expanded="1" path="animation-folder/coneVisaoNPCCadeia/" />
+        <folder expanded="1" path="animation-folder/portaCela2/" />
+        <folder expanded="1" path="animation-folder/NPCescola/" />
+        <folder expanded="1" path="animation-folder/wayPoint/" />
+        <folder expanded="1" path="animation-folder/escolaParedeFrente2/" />
+        <folder expanded="1" path="animation-folder/milho/" />
+        <folder expanded="1" path="animation-folder/buraco/" />
+        <folder expanded="1" path="animation-folder/Menu/" />
+        <folder expanded="1" path="animation-folder/balaoPensa/" />
+        <folder expanded="1" path="animation-folder/apagaLuz/" />
+        <folder expanded="1" path="animation-folder/nuvensPortico/" />
+        <folder expanded="1" path="animation-folder/paredeQuarto/" />
+        <folder expanded="1" path="animation-folder/vinhetaOlho/" />
+        <folder expanded="1" path="animation-folder/floresta/" />
+        <folder expanded="1" path="animation-folder/pisca_/" />
+        <folder expanded="1" path="animation-folder/controlesImg/" />
+        <folder expanded="1" path="animation-folder/sobreImg/" />
+        <folder expanded="1" path="animation-folder/limitePersonagem/" />
+        <folder expanded="1" path="animation-folder/circuloLuzes/" />
+        <folder expanded="1" path="animation-folder/Sprite/" />
+        <folder expanded="1" path="animation-folder/muroCima/" />
+        <folder expanded="1" path="animation-folder/casa3b/" />
+        <folder expanded="1" path="animation-folder/casa6/" />
+        <folder expanded="1" path="animation-folder/casa6b/" />
+        <folder expanded="1" path="animation-folder/porta2/" />
+        <folder expanded="1" path="animation-folder/muro2/" />
+        <folder expanded="1" path="animation-folder/arvore/" />
+        <folder expanded="1" path="animation-folder/pilula/" />
+    </folders-expanded>
+</c2uistate>

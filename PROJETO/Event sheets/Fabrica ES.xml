@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Fabrica ES</name>
+    <events>
+        <include>Game Loop</include>
+        <event-block sid="755239502749030">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="326473929836567" type="System">
+                    <param id="0" name="Interval (seconds)">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Set group active" sid="710581736615349" type="System">
+                    <param id="0" name="Group name">&quot;Movimentos da esteira 1&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="2" name="Stop" sid="124566397108279" type="esteira" />
+                <action behavior="LiteTween" id="5" name="Set easing" sid="269699195258591" type="amassador">
+                    <param id="0" name="Function">23</param>
+                </action>
+                <action behavior="LiteTween" id="10" name="Start" sid="731475501053188" type="amassador">
+                    <param id="0" name="Start Mode">0</param>
+                    <param id="1" name="Force use current">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="356276106599935" type="System">
+                    <param id="0" name="Seconds">amassador.LiteTween.Duration + 1</param>
+                </action>
+                <action behavior="LiteTween" id="14" name="Stop" sid="733218089543536" type="amassador">
+                    <param id="0" name="Stop Mode">2</param>
+                </action>
+                <action behavior="LiteTween" id="5" name="Set easing" sid="996965479528421" type="amassador">
+                    <param id="0" name="Function">0</param>
+                </action>
+                <action behavior="LiteTween" id="11" name="Reverse" sid="530218596057661" type="amassador">
+                    <param id="0" name="Reverse mode">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="302825292357730" type="System">
+                    <param id="0" name="Seconds">0.3</param>
+                </action>
+                <action id="3" name="Start" sid="905068454091237" type="esteira">
+                    <param id="0" name="From">0</param>
+                </action>
+                <action id="-12" name="Set group active" sid="706419046321709" type="System">
+                    <param id="0" name="Group name">&quot;Movimentos da esteira 1&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="118195239063088" title="Movimentos da esteira 1">
+            <sub-events>
+                <event-block sid="498182300161135">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="975650321872894" type="player">
+                            <param id="0" name="Object">areaEsteira</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-17" name="Move forward" sid="183111932840114" type="player">
+                            <param id="0" name="Distance">areaEsteira.velocidade</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="262400040640572">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="545230090075227" type="NPCFabrica">
+                            <param id="0" name="Object">areaEsteira</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-17" name="Move forward" sid="688552135183959" type="NPCFabrica">
+                            <param id="0" name="Distance">areaEsteira.velocidade</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="591498857667272">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="956266169365366" type="caixa">
+                            <param id="0" name="Object">areaEsteira</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-23" name="Move at angle" sid="829659941566685" type="caixa">
+                            <param id="0" name="Angle">0</param>
+                            <param id="1" name="Distance">areaEsteira.velocidade</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="486626064003496">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="908700916828053" type="caixa">
+                    <param id="0" name="Object">areaEscorrega</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-23" name="Move at angle" sid="628623089252200" type="caixa">
+                    <param id="0" name="Angle">90</param>
+                    <param id="1" name="Distance">10</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Gerar NPCs</comment>
+        <event-block sid="968556645333888">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="862417058188828" type="System">
+                    <param id="0" name="Interval (seconds)">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="946154022461909" type="System">
+                    <param id="0" name="Object to create">NPCFabrica</param>
+                    <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                    <param id="2" name="X">NPCspawner.X</param>
+                    <param id="3" name="Y">NPCspawner.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Encaixar NPC</comment>
+        <event-block sid="218781941196700">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="900908954514729" type="amassador">
+                    <param id="0" name="Object">NPCFabrica</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="881912365101275" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action id="-3" name="Create object" sid="567128197977846" type="System">
+                    <param id="0" name="Object to create">caixa</param>
+                    <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                    <param id="2" name="X">NPCFabrica.X</param>
+                    <param id="3" name="Y">NPCFabrica.Y+50</param>
+                </action>
+                <action id="-9" name="Destroy" sid="186159742723618" type="NPCFabrica" />
+                <action behavior="Solid" id="0" name="Set enabled" sid="419080630916259" type="caixa">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Empurrador</comment>
+        <event-block sid="246217036648360">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="545326378079302" type="System">
+                    <param id="0" name="Interval (seconds)">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="LiteTween" id="5" name="Set easing" sid="986893144107152" type="empurrador">
+                    <param id="0" name="Function">23</param>
+                </action>
+                <action behavior="LiteTween" id="10" name="Start" sid="186776242348006" type="empurrador">
+                    <param id="0" name="Start Mode">0</param>
+                    <param id="1" name="Force use current">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="908674369487648" type="System">
+                    <param id="0" name="Seconds">empurrador.LiteTween.Duration+1</param>
+                </action>
+                <action behavior="LiteTween" id="14" name="Stop" sid="896543338930811" type="empurrador">
+                    <param id="0" name="Stop Mode">2</param>
+                </action>
+                <action behavior="LiteTween" id="5" name="Set easing" sid="911090788214334" type="empurrador">
+                    <param id="0" name="Function">0</param>
+                </action>
+                <action behavior="LiteTween" id="11" name="Reverse" sid="361555072056768" type="empurrador">
+                    <param id="0" name="Reverse mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="952022479670128">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="802538572792239" type="caixa">
+                    <param id="0" name="Object">areaEsteira2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-23" name="Move at angle" sid="364136890608827" type="caixa">
+                    <param id="0" name="Angle">180</param>
+                    <param id="1" name="Distance">areaEsteira.velocidade</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="759953632837581">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="699684433318743" type="Personagem">
+                    <param id="0" name="Object">escada</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Move to layer" sid="702789026852935" type="Personagem">
+                    <param id="0" name="Layer">&quot;Piso3&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="633494550103441">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="416450764765211" type="Personagem">
+                    <param id="0" name="Object">areaEsteira</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Move to layer" sid="413031015088764" type="Personagem">
+                    <param id="0" name="Layer">&quot;Layer 0&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="983454591350850">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="637400665090948" type="caixa">
+                    <param id="0" name="Object">hit_destroyBoxes</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="424258252106137" type="caixa" />
+            </actions>
+        </event-block>
+        <event-block sid="282024179929934">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="755729604897568" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Solid" id="0" name="Set enabled" sid="956522306044745" type="caixa">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="933792338882110">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="395610977798054" type="caixa">
+                    <param id="0" name="Object">player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Solid" id="0" name="Set enabled" sid="722326919334170" type="caixa">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="712741825726836">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="244952651641317" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="701286968726955" type="System">
+                    <param id="0" name="Object to create">NPCFabrica</param>
+                    <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                    <param id="2" name="X">NPCspawner.X</param>
+                    <param id="3" name="Y">NPCspawner.Y</param>
+                </action>
+                <action id="-3" name="Create object" sid="891030739427910" type="System">
+                    <param id="0" name="Object to create">NPCFabrica</param>
+                    <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                    <param id="2" name="X">NPCspawner.X - 300</param>
+                    <param id="3" name="Y">NPCspawner.Y</param>
+                </action>
+                <action id="-3" name="Create object" sid="633671969686031" type="System">
+                    <param id="0" name="Object to create">NPCFabrica</param>
+                    <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                    <param id="2" name="X">NPCspawner.X - 600</param>
+                    <param id="3" name="Y">NPCspawner.Y</param>
+                </action>
+                <action id="-3" name="Create object" sid="956264624829777" type="System">
+                    <param id="0" name="Object to create">NPCFabrica</param>
+                    <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                    <param id="2" name="X">NPCspawner.X - 900</param>
+                    <param id="3" name="Y">NPCspawner.Y</param>
+                </action>
+                <action id="-3" name="Create object" sid="920122867952393" type="System">
+                    <param id="0" name="Object to create">NPCFabrica</param>
+                    <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                    <param id="2" name="X">NPCspawner.X - 1200</param>
+                    <param id="3" name="Y">NPCspawner.Y</param>
+                </action>
+                <action id="-3" name="Create object" sid="782567512195665" type="System">
+                    <param id="0" name="Object to create">NPCFabrica</param>
+                    <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                    <param id="2" name="X">NPCspawner.X - 1500</param>
+                    <param id="3" name="Y">NPCspawner.Y</param>
+                </action>
+                <action id="-3" name="Create object" sid="824409729120077" type="System">
+                    <param id="0" name="Object to create">NPCFabrica</param>
+                    <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                    <param id="2" name="X">NPCspawner.X - 1800</param>
+                    <param id="3" name="Y">NPCspawner.Y</param>
+                </action>
+                <action id="-9" name="Set value" sid="553658356203290" type="System">
+                    <param id="0" name="Variable">somAmbiente</param>
+                    <param id="1" name="Value">&quot;cadeia&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

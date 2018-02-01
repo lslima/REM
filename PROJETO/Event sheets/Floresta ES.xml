@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Floresta ES</name>
+    <events>
+        <include>Game Loop</include>
+        <comment>Seleciona a ação a ser executada por padrão na sala atual</comment>
+        <event-block sid="287084815770762">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="543603226380456" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="153308283666578" type="player">
+                    <param id="0" name="Instance variable">açãoAnim</param>
+                    <param id="1" name="Value">&quot;interage&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="622347002152129" type="Function">
+                    <param id="0" name="Name">&quot;acordar&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="293363783513911" type="System">
+                    <param id="0" name="Variable">somAmbiente</param>
+                    <param id="1" name="Value">&quot;floresta&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,129 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="igreja2_data" version="1.3.0" audacityversion="2.1.3" sel0="8.9555412157" sel1="8.9555412157" vpos="144" h="0.0000000000" zoom="17.9776962802" rate="48000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="74320__acamant__church-ringing" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="29.53660417">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1495186">
+				<waveblock start="0">
+					<pcmaliasblockfile summaryfile="e0000def.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="0" aliaslen="262144" aliaschannel="0" min="-0.843811" max="0.769165" rms="0.225484"/>
+				</waveblock>
+				<waveblock start="262144">
+					<pcmaliasblockfile summaryfile="e0000882.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="262144" aliaslen="262144" aliaschannel="0" min="-0.812134" max="0.794373" rms="0.215914"/>
+				</waveblock>
+				<waveblock start="524288">
+					<pcmaliasblockfile summaryfile="e00003f1.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="524288" aliaslen="262144" aliaschannel="0" min="-0.831299" max="0.911194" rms="0.184031"/>
+				</waveblock>
+				<waveblock start="786432">
+					<pcmaliasblockfile summaryfile="e0000df7.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="786432" aliaslen="262144" aliaschannel="0" min="-0.850739" max="0.932465" rms="0.194498"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<pcmaliasblockfile summaryfile="e0000f88.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="1048576" aliaslen="262144" aliaschannel="0" min="-0.787231" max="0.775085" rms="0.18385"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="e0000b1f.au" len="184466" min="-0.808075" max="0.822876" rms="0.209212"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="2">
+				<controlpoint t="0.000005000000" val="0.056338012218"/>
+				<controlpoint t="5.729315899944" val="1.000000000000"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="74320__acamant__church-ringing" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="29.53660417">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1495186">
+				<waveblock start="0">
+					<pcmaliasblockfile summaryfile="e00008ba.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="0" aliaslen="262144" aliaschannel="1" min="-0.640198" max="0.63678" rms="0.192617"/>
+				</waveblock>
+				<waveblock start="262144">
+					<pcmaliasblockfile summaryfile="e0000c63.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="262144" aliaslen="262144" aliaschannel="1" min="-0.65741" max="0.625488" rms="0.175931"/>
+				</waveblock>
+				<waveblock start="524288">
+					<pcmaliasblockfile summaryfile="e0000519.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="524288" aliaslen="262144" aliaschannel="1" min="-0.654022" max="0.687134" rms="0.140625"/>
+				</waveblock>
+				<waveblock start="786432">
+					<pcmaliasblockfile summaryfile="e0000af0.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="786432" aliaslen="262144" aliaschannel="1" min="-0.707184" max="0.717346" rms="0.167122"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<pcmaliasblockfile summaryfile="e000007c.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="1048576" aliaslen="262144" aliaschannel="1" min="-0.631714" max="0.616302" rms="0.155287"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="e0000841.au" len="184466" min="-0.627869" max="0.608276" rms="0.166765"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="2">
+				<controlpoint t="0.000005000000" val="0.056338012218"/>
+				<controlpoint t="5.729315899944" val="1.000000000000"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="74320__acamant__church-ringing" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1711454">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000af3.au" len="77678" min="-0.738068" max="0.646576" rms="0.205225"/>
+				</waveblock>
+				<waveblock start="77678">
+					<pcmaliasblockfile summaryfile="e00001fb.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="1572864" aliaslen="262144" aliaschannel="0" min="-0.949921" max="0.99823" rms="0.230697"/>
+				</waveblock>
+				<waveblock start="339822">
+					<pcmaliasblockfile summaryfile="e00005c1.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="1835008" aliaslen="262144" aliaschannel="0" min="-0.910095" max="0.853088" rms="0.217714"/>
+				</waveblock>
+				<waveblock start="601966">
+					<pcmaliasblockfile summaryfile="e00004fa.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="2097152" aliaslen="262144" aliaschannel="0" min="-0.880249" max="0.90033" rms="0.233958"/>
+				</waveblock>
+				<waveblock start="864110">
+					<pcmaliasblockfile summaryfile="e0000dee.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="2359296" aliaslen="262144" aliaschannel="0" min="-0.852661" max="0.879425" rms="0.218"/>
+				</waveblock>
+				<waveblock start="1126254">
+					<pcmaliasblockfile summaryfile="e0000b1a.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="2621440" aliaslen="262144" aliaschannel="0" min="-0.848633" max="0.873932" rms="0.219546"/>
+				</waveblock>
+				<waveblock start="1388398">
+					<pcmaliasblockfile summaryfile="e0000891.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="2883584" aliaslen="262144" aliaschannel="0" min="-0.834839" max="0.886017" rms="0.233171"/>
+				</waveblock>
+				<waveblock start="1650542">
+					<pcmaliasblockfile summaryfile="e00001f5.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="3145728" aliaslen="60912" aliaschannel="0" min="-0.724365" max="0.65686" rms="0.210284"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="2">
+				<controlpoint t="29.480974188177" val="1.000000000000"/>
+				<controlpoint t="35.655286666667" val="0.098591566086"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="74320__acamant__church-ringing" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1711454">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000395.au" len="77678" min="-0.531067" max="0.510468" rms="0.163878"/>
+				</waveblock>
+				<waveblock start="77678">
+					<pcmaliasblockfile summaryfile="e00006a5.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="1572864" aliaslen="262144" aliaschannel="1" min="-0.706848" max="0.777374" rms="0.177677"/>
+				</waveblock>
+				<waveblock start="339822">
+					<pcmaliasblockfile summaryfile="e000081e.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="1835008" aliaslen="262144" aliaschannel="1" min="-0.67691" max="0.62915" rms="0.159464"/>
+				</waveblock>
+				<waveblock start="601966">
+					<pcmaliasblockfile summaryfile="e000017b.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="2097152" aliaslen="262144" aliaschannel="1" min="-0.595917" max="0.650177" rms="0.168648"/>
+				</waveblock>
+				<waveblock start="864110">
+					<pcmaliasblockfile summaryfile="e0000910.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="2359296" aliaslen="262144" aliaschannel="1" min="-0.638245" max="0.62442" rms="0.156657"/>
+				</waveblock>
+				<waveblock start="1126254">
+					<pcmaliasblockfile summaryfile="e00003f5.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="2621440" aliaslen="262144" aliaschannel="1" min="-0.639282" max="0.596832" rms="0.168678"/>
+				</waveblock>
+				<waveblock start="1388398">
+					<pcmaliasblockfile summaryfile="e00000f3.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="2883584" aliaslen="262144" aliaschannel="1" min="-0.657501" max="0.628204" rms="0.168643"/>
+				</waveblock>
+				<waveblock start="1650542">
+					<pcmaliasblockfile summaryfile="e0000223.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\74320__acamant__church-ringing.wav" aliasstart="3145728" aliaslen="60912" aliaschannel="1" min="-0.577118" max="0.553833" rms="0.163436"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="2">
+				<controlpoint t="29.480974188177" val="1.000000000000"/>
+				<controlpoint t="35.655286666667" val="0.098591566086"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+</project>

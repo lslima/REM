@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Labirinto 1 ES</name>
+    <events>
+        <include>Game Loop</include>
+        <comment>Seleciona a ação a ser executada por padrão na sala atual</comment>
+        <event-block sid="151542730173122">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="246738132438465" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="745543561086958" type="player">
+                    <param id="0" name="Instance variable">açãoAnim</param>
+                    <param id="1" name="Value">&quot;interage&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="845596987656425" type="System">
+                    <param id="0" name="Variable">somAmbiente</param>
+                    <param id="1" name="Value">&quot;salaCha&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="698770771574378">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="819979685717312" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="277148454676929">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="140626036044737" type="System">
+                            <param id="0" name="Object">geradorDeTiles</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="796407655505059" type="System">
+                            <param id="0" name="Object to create">PisoLodge</param>
+                            <param id="1" name="Layer">&quot;BG&quot;</param>
+                            <param id="2" name="X">geradorDeTiles.X - (geradorDeTiles.Width/2)/2</param>
+                            <param id="3" name="Y">geradorDeTiles.Y - (geradorDeTiles.Height/2)/2</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="606864338256099" type="System">
+                            <param id="0" name="Object to create">PisoLodge</param>
+                            <param id="1" name="Layer">&quot;BG&quot;</param>
+                            <param id="2" name="X">geradorDeTiles.X + (geradorDeTiles.Width/2)/2</param>
+                            <param id="3" name="Y">geradorDeTiles.Y - (geradorDeTiles.Height/2)/2</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="989086374879467" type="System">
+                            <param id="0" name="Object to create">PisoLodge</param>
+                            <param id="1" name="Layer">&quot;BG&quot;</param>
+                            <param id="2" name="X">geradorDeTiles.X - (geradorDeTiles.Width/2)/2</param>
+                            <param id="3" name="Y">geradorDeTiles.Y + (geradorDeTiles.Height/2)/2</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="853944489496391" type="System">
+                            <param id="0" name="Object to create">PisoLodge</param>
+                            <param id="1" name="Layer">&quot;BG&quot;</param>
+                            <param id="2" name="X">geradorDeTiles.X + (geradorDeTiles.Width/2)/2</param>
+                            <param id="3" name="Y">geradorDeTiles.Y + (geradorDeTiles.Height/2)/2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="359721111163957">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="852306664353800" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Sort all Objects in layer by Y" sid="494960172272932" type="ZSorter">
+                    <param id="0" name="Layer">&quot;BG&quot;</param>
+                </action>
+                <action id="5" name="Set frame" sid="917831755186754" type="PisoLodge">
+                    <param id="0" name="Frame number">floor(random(0,4))</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="730253607820969">
+                    <conditions>
+                        <condition id="-17" name="Pick top/bottom" sid="775345264985084" type="BG_Labirinto">
+                            <param id="0" name="Which">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-24" name="Move to top" sid="769751050568896" type="BG_Labirinto" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="305659175395059">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="884524034556678" type="detonaAnimais">
+                    <param id="0" name="Object">Personagem</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="940595807565488">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="541331189814372" type="Animais">
+                            <param id="0" name="Object">detonaAnimais</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="476103917494857" type="System">
+                            <param id="0" name="Object to create">Chave</param>
+                            <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                            <param id="2" name="X">Animais.X</param>
+                            <param id="3" name="Y">Animais.Y</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="641703935232293" type="System">
+                            <param id="0" name="Object to create">fumaca</param>
+                            <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                            <param id="2" name="X">Animais.X</param>
+                            <param id="3" name="Y">Animais.Y</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="594217167937410" type="Animais" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Quarto ES</name>
+    <events>
+        <include>Game Loop</include>
+        <event-block sid="591200906113323">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="701323483188499" type="System" />
+            </conditions>
+            <actions>
+                <action id="-29" name="Move to object" sid="463783596747514" type="paredeQuarto">
+                    <param id="0" name="Where">1</param>
+                    <param id="1" name="Object">quarto_</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="751670519746675">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="124117058819856" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="581889701108496" type="System">
+                    <param id="0" name="Variable">somAmbiente</param>
+                    <param id="1" name="Value">&quot;ruas&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

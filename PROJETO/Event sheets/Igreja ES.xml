@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Igreja ES</name>
+    <events>
+        <include>Game Loop</include>
+        <event-block sid="495649010829188">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="486138893154289" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="167872612110522" type="player">
+                    <param id="0" name="Instance variable">açãoAnim</param>
+                    <param id="1" name="Value">&quot;interage&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="185689729902989" type="System">
+                    <param id="0" name="Variable">somAmbiente</param>
+                    <param id="1" name="Value">&quot;igreja&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="766224465082214">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="650419767311073" type="player">
+                    <param id="0" name="Object">detonaAnimais</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="6" name="Set speed" sid="946516589438818" type="portaIgreja">
+                    <param id="0" name="Speed">12</param>
+                </action>
+                <action behavior="Solid" id="0" name="Set enabled" sid="594158617896668" type="portaIgreja">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="613273973952690">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="654614309640956" type="Personagem">
+                    <param id="0" name="Object">hit_destroyBoxes</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="654446626799424" type="player">
+                    <param id="0" name="Instance variable">ação</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="577571949772089" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action behavior="Fade" id="1" name="Start fade" sid="901627676580583" type="portico2" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Criação de objetos</name>
+    <events>
+        <event-block sid="429232480374138">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="874614905123607" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="142514922803601">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="408650827644857" type="System">
+                            <param id="0" name="Object">porta</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="489989789033224">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="261970421089219" type="porta">
+                                    <param id="0" name="Instance variable">fundoPreto</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="643046493833745" type="System">
+                                    <param id="0" name="Object to create">BG_05</param>
+                                    <param id="1" name="Layer">&quot;BG&quot;</param>
+                                    <param id="2" name="X">porta.X</param>
+                                    <param id="3" name="Y">porta.Y</param>
+                                </action>
+                                <action id="-7" name="Set size" sid="678787123249703" type="BG_05">
+                                    <param id="0" name="Width">206</param>
+                                    <param id="1" name="Height">324</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

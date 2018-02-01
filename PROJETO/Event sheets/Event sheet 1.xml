@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable comment="Mostra o Logo" constant="0" name="estadoMenuIntro" sid="905693298655704" static="0" type="text">logo</variable>
+        <variable comment="0 = começar; 1 = controles; 2 = sobre" constant="0" name="op" sid="825665819268417" static="0" type="number">0</variable>
+        <event-block sid="999098415248908">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="953756313841629" type="System" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set layer visible" sid="713175822375563" type="System">
+                    <param id="0" name="Layer">&quot;logo&quot;</param>
+                    <param id="1" name="Visibility">1</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="188716766963477" type="System">
+                    <param id="0" name="Layer">&quot;opcoes&quot;</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="479179030074918" type="System">
+                    <param id="0" name="Layer">&quot;controles&quot;</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="790190907561413" type="System">
+                    <param id="0" name="Layer">&quot;sobre&quot;</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="6" name="Set speed" sid="586912875120234" type="piscaOut">
+                    <param id="0" name="Speed">0</param>
+                </action>
+                <action id="0" name="Play" sid="272726452106202" type="Audio">
+                    <param id="0" name="Audio file">menu-musica</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;amb&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="943971834782384">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="419294506893872" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="472152209902160" type="TextDebugLocal">
+                    <param id="0" name="Text">estadoMenuIntro</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="337899614096322" title="estadosMenu">
+            <sub-events>
+                <variable constant="0" name="tempoPiscada" sid="984427288827161" static="0" type="number">0.25</variable>
+                <event-block sid="412329474069100">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="971594653020847" type="System">
+                            <param id="0" name="Variable">estadoMenuIntro</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;logo&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="299796518015521" type="System">
+                            <param id="0" name="Variable">estadoMenuIntro</param>
+                            <param id="1" name="Value">&quot;logo&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block any="1" sid="504586758897721">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="353631526169640" type="Keyboard">
+                                    <param id="0" name="Key">13</param>
+                                </condition>
+                                <condition id="3" name="Is button down" sid="310087447902193" type="Gamepad">
+                                    <param id="0" name="Gamepad">0</param>
+                                    <param id="1" name="Button">9</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Start" sid="702853019017960" type="pisca_">
+                                    <param id="0" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="808523210522358" type="System">
+                                    <param id="0" name="Seconds">tempoPiscada</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="489861185881801" type="System">
+                                    <param id="0" name="Variable">estadoMenuIntro</param>
+                                    <param id="1" name="Value">&quot;opcoes&quot;</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="212617377696404" type="System">
+                                    <param id="0" name="Layer">&quot;logo&quot;</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="905263904452335">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="574043446171295" type="System">
+                            <param id="0" name="Variable">estadoMenuIntro</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;opcoes&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="280845017898059" type="System">
+                            <param id="0" name="Layer">&quot;opcoes&quot;</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="502112717235436">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="893322478890668" type="System">
+                                    <param id="0" name="Variable">op</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="263041771686087" type="System">
+                                    <param id="0" name="Variable">op</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="172083592854079">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="528169602584610" type="System">
+                                    <param id="0" name="Variable">op</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="380274932573927" type="System">
+                                    <param id="0" name="Variable">op</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="313919241572700">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="658370590710714" type="Keyboard">
+                                    <param id="0" name="Key">38</param>
+                                </condition>
+                                <condition id="6" name="On button pressed" sid="151501900341128" type="Gamepad">
+                                    <param id="0" name="Gamepad">0</param>
+                                    <param id="1" name="Button">12</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="179122722062831" type="System">
+                                    <param id="0" name="Variable">op</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Play" sid="774517359256956" type="Audio">
+                                    <param id="0" name="Audio file">menu-bot</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;menu-bot&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="831440161915742">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="957354998379299" type="Keyboard">
+                                    <param id="0" name="Key">40</param>
+                                </condition>
+                                <condition id="6" name="On button pressed" sid="887069376564315" type="Gamepad">
+                                    <param id="0" name="Gamepad">0</param>
+                                    <param id="1" name="Button">13</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="422209008869753" type="System">
+                                    <param id="0" name="Variable">op</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Play" sid="581122995705994" type="Audio">
+                                    <param id="0" name="Audio file">menu-bot</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;menu-bot&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="769735532204408">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="608982867468231" type="System">
+                                    <param id="0" name="Variable">op</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="408068283551863" type="começar">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="881023526799039" type="controles">
+                                    <param id="0" name="Opacity">25</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="727305898571299" type="spbre">
+                                    <param id="0" name="Opacity">25</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="388216291502134">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="932764192215751" type="System">
+                                    <param id="0" name="Variable">op</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="936080454749684" type="começar">
+                                    <param id="0" name="Opacity">25</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="661095708851809" type="controles">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="472802150486731" type="spbre">
+                                    <param id="0" name="Opacity">25</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="484669285541825">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="182463824379491" type="System">
+                                    <param id="0" name="Variable">op</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="577583231679930" type="começar">
+                                    <param id="0" name="Opacity">25</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="198576060132167" type="controles">
+                                    <param id="0" name="Opacity">25</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="417052973962226" type="spbre">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="255168493682290">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="894236957567684" type="Keyboard">
+                                    <param id="0" name="Key">13</param>
+                                </condition>
+                                <condition id="0" name="On key pressed" sid="786112136731795" type="Keyboard">
+                                    <param id="0" name="Key">32</param>
+                                </condition>
+                                <condition id="3" name="Is button down" sid="848377610728700" type="Gamepad">
+                                    <param id="0" name="Gamepad">0</param>
+                                    <param id="1" name="Button">9</param>
+                                </condition>
+                                <condition id="3" name="Is button down" sid="388470192847092" type="Gamepad">
+                                    <param id="0" name="Gamepad">0</param>
+                                    <param id="1" name="Button">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="244996338683002">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="297057311662607" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="881848538652403" type="Audio">
+                                            <param id="0" name="Audio file">menu-selection</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;menu-selection&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="222671965242124">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="546817347426424" type="System">
+                                            <param id="0" name="Variable">op</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="2" name="Stop" sid="372583441786804" type="AudioHelper">
+                                            <param id="0" name="Tag">&quot;amb&quot;</param>
+                                            <param id="1" name="Fade-out">3</param>
+                                            <param id="2" name="Stop volume">&quot;-60dB&quot;</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="116235776370767" type="System">
+                                            <param id="0" name="Variable">spawnPoint</param>
+                                            <param id="1" name="Value">&quot;inicial&quot;</param>
+                                        </action>
+                                        <action id="6" name="Set speed" sid="400091718323680" type="piscaOut">
+                                            <param id="0" name="Speed">8</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="333800767828172" type="System">
+                                            <param id="0" name="Seconds">3</param>
+                                        </action>
+                                        <action id="0" name="Prepare Transition" sid="540736023032130" type="LayoutTransitionV2" />
+                                        <action id="-16" name="Wait" sid="972597375028545" type="System">
+                                            <param id="0" name="Seconds">0.1</param>
+                                        </action>
+                                        <action id="1" name="Start Transition" sid="712970251159746" type="LayoutTransitionV2">
+                                            <param id="0" name="Transition Name">11</param>
+                                        </action>
+                                        <action id="-2" name="Go to layout" sid="769635201623477" type="System">
+                                            <param id="0" name="Layout">Floresta</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="357103723350001">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="574926784927320" type="System">
+                                            <param id="0" name="Variable">op</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="3" name="Start" sid="728940346902726" type="pisca_">
+                                            <param id="0" name="From">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="864885843110918" type="System">
+                                            <param id="0" name="Seconds">tempoPiscada</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="390397361765196" type="System">
+                                            <param id="0" name="Variable">estadoMenuIntro</param>
+                                            <param id="1" name="Value">&quot;controles&quot;</param>
+                                        </action>
+                                        <action id="-4" name="Set layer visible" sid="729410834545315" type="System">
+                                            <param id="0" name="Layer">&quot;opcoes&quot;</param>
+                                            <param id="1" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="299672596380068">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="555091025082162" type="System">
+                                            <param id="0" name="Variable">op</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="3" name="Start" sid="492228959898603" type="pisca_">
+                                            <param id="0" name="From">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="945713797835451" type="System">
+                                            <param id="0" name="Seconds">tempoPiscada</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="100495392045299" type="System">
+                                            <param id="0" name="Variable">estadoMenuIntro</param>
+                                            <param id="1" name="Value">&quot;sobre&quot;</param>
+                                        </action>
+                                        <action id="-4" name="Set layer visible" sid="453495285242488" type="System">
+                                            <param id="0" name="Layer">&quot;opcoes&quot;</param>
+                                            <param id="1" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="523262362617915">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="383652321695158" type="System">
+                            <param id="0" name="Variable">estadoMenuIntro</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;controles&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="431249979692438" type="System">
+                            <param id="0" name="Layer">&quot;controles&quot;</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block any="1" sid="645614610710273">
+                            <conditions>
+                                <condition id="7" name="On any key released" sid="409343401954730" type="Keyboard" />
+                                <condition id="9" name="On any button released" sid="923618253042494" type="Gamepad">
+                                    <param id="0" name="Gamepad">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="632636515837806" type="Audio">
+                                    <param id="0" name="Audio file">menu-selection</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;menu-selection&quot;</param>
+                                </action>
+                                <action id="3" name="Start" sid="913419603645850" type="pisca_">
+                                    <param id="0" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="375601360881201" type="System">
+                                    <param id="0" name="Seconds">tempoPiscada</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="154113508172924" type="System">
+                                    <param id="0" name="Layer">&quot;controles&quot;</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="906809844552485" type="System">
+                                    <param id="0" name="Variable">estadoMenuIntro</param>
+                                    <param id="1" name="Value">&quot;opcoes&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="304106901435462">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="417113032569643" type="System">
+                            <param id="0" name="Variable">estadoMenuIntro</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;sobre&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="279500433027349" type="System">
+                            <param id="0" name="Layer">&quot;sobre&quot;</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block any="1" sid="460260320643870">
+                            <conditions>
+                                <condition id="7" name="On any key released" sid="816536979545262" type="Keyboard" />
+                                <condition id="9" name="On any button released" sid="693293509945393" type="Gamepad">
+                                    <param id="0" name="Gamepad">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="696552056641858" type="Audio">
+                                    <param id="0" name="Audio file">menu-selection</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;menu-selection&quot;</param>
+                                </action>
+                                <action id="3" name="Start" sid="144727446113752" type="pisca_">
+                                    <param id="0" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="552327044265397" type="System">
+                                    <param id="0" name="Seconds">tempoPiscada</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="202923629775596" type="System">
+                                    <param id="0" name="Layer">&quot;sobre&quot;</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="727239915681418" type="System">
+                                    <param id="0" name="Variable">estadoMenuIntro</param>
+                                    <param id="1" name="Value">&quot;opcoes&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

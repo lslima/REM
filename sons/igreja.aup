@@ -1,0 +1,50 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="igreja_data" version="1.3.0" audacityversion="2.1.3" sel0="2.4229955007" sel1="2.4229955007" vpos="0" h="0.0000000000" zoom="80.0661825174" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="Software" value="Edison"/>
+		<tag name="COMMENTS" value="Recorded on 1/9/2016 in Edison."/>
+	</tags>
+	<wavetrack name="341811__ianstargem__arp-pad-thing" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="661504">
+				<waveblock start="0">
+					<pcmaliasblockfile summaryfile="e0000fa3.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\341811__ianstargem__arp-pad-thing.wav" aliasstart="0" aliaslen="262144" aliaschannel="0" min="-0.938108" max="1.0" rms="0.206379"/>
+				</waveblock>
+				<waveblock start="262144">
+					<pcmaliasblockfile summaryfile="e00005d5.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\341811__ianstargem__arp-pad-thing.wav" aliasstart="262144" aliaslen="262144" aliaschannel="0" min="-0.955388" max="0.911617" rms="0.217128"/>
+				</waveblock>
+				<waveblock start="524288">
+					<pcmaliasblockfile summaryfile="e0000eb1.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\341811__ianstargem__arp-pad-thing.wav" aliasstart="524288" aliaslen="137216" aliaschannel="0" min="-0.717329" max="0.760449" rms="0.208511"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="4">
+				<controlpoint t="0.000005000000" val="1.105633735657"/>
+				<controlpoint t="5.457984710398" val="1.000000000000"/>
+				<controlpoint t="12.989254230696" val="1.000000000000"/>
+				<controlpoint t="14.987601035418" val="0.436619699001"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="341811__ianstargem__arp-pad-thing" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="661504">
+				<waveblock start="0">
+					<pcmaliasblockfile summaryfile="e0000b15.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\341811__ianstargem__arp-pad-thing.wav" aliasstart="0" aliaslen="262144" aliaschannel="1" min="-0.889737" max="0.841869" rms="0.215683"/>
+				</waveblock>
+				<waveblock start="262144">
+					<pcmaliasblockfile summaryfile="e0000ed0.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\341811__ianstargem__arp-pad-thing.wav" aliasstart="262144" aliaslen="262144" aliaschannel="1" min="-0.888062" max="0.961736" rms="0.226107"/>
+				</waveblock>
+				<waveblock start="524288">
+					<pcmaliasblockfile summaryfile="e0000307.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\341811__ianstargem__arp-pad-thing.wav" aliasstart="524288" aliaslen="137216" aliaschannel="1" min="-0.835273" max="0.731823" rms="0.194657"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="4">
+				<controlpoint t="0.000005000000" val="1.105633735657"/>
+				<controlpoint t="5.457984710398" val="1.000000000000"/>
+				<controlpoint t="12.989254230696" val="1.000000000000"/>
+				<controlpoint t="14.987601035418" val="0.436619699001"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+</project>

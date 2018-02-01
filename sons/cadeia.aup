@@ -1,0 +1,101 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="cadeia_data" version="1.3.0" audacityversion="2.1.3" sel0="47.4123362806" sel1="47.4123362806" vpos="0" h="0.0000000000" zoom="21.8086700870" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="Software" value="FL Studio 8;Sound Forge Pro 10.0"/>
+	</tags>
+	<wavetrack name="201513__iamdead324__underground-prison" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="25.08176871">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1118239">
+				<waveblock start="0">
+					<pcmaliasblockfile summaryfile="e000079d.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="0" aliaslen="262144" aliaschannel="0" min="-0.754456" max="0.690002" rms="0.197509"/>
+				</waveblock>
+				<waveblock start="262144">
+					<pcmaliasblockfile summaryfile="e0000ee0.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="262144" aliaslen="262144" aliaschannel="0" min="-0.886932" max="0.867554" rms="0.19281"/>
+				</waveblock>
+				<waveblock start="524288">
+					<pcmaliasblockfile summaryfile="e0000f91.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="524288" aliaslen="262144" aliaschannel="0" min="-0.68454" max="0.727478" rms="0.208057"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="e000043e.au" len="165903" min="-0.694702" max="0.664612" rms="0.20232"/>
+				</waveblock>
+				<waveblock start="952335">
+					<simpleblockfile filename="e0000b34.au" len="165904" min="-0.631165" max="0.692078" rms="0.18706"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="201513__iamdead324__underground-prison" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="25.08176871">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1118239">
+				<waveblock start="0">
+					<pcmaliasblockfile summaryfile="e0000026.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="0" aliaslen="262144" aliaschannel="1" min="-0.698792" max="0.688385" rms="0.202293"/>
+				</waveblock>
+				<waveblock start="262144">
+					<pcmaliasblockfile summaryfile="e0000548.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="262144" aliaslen="262144" aliaschannel="1" min="-0.709991" max="0.670776" rms="0.198329"/>
+				</waveblock>
+				<waveblock start="524288">
+					<pcmaliasblockfile summaryfile="e0000078.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="524288" aliaslen="262144" aliaschannel="1" min="-0.705658" max="0.706482" rms="0.226607"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="e000095d.au" len="165903" min="-0.636871" max="0.557373" rms="0.198255"/>
+				</waveblock>
+				<waveblock start="952335">
+					<simpleblockfile filename="e0000765.au" len="165904" min="-0.687073" max="0.674103" rms="0.212056"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="201513__iamdead324__underground-prison" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1310341">
+				<waveblock start="0">
+					<simpleblockfile filename="e00006ca.au" len="192481" min="-0.700592" max="0.677612" rms="0.212939"/>
+				</waveblock>
+				<waveblock start="192481">
+					<pcmaliasblockfile summaryfile="e0000e4f.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="1310720" aliaslen="262144" aliaschannel="0" min="-0.629059" max="0.607605" rms="0.189087"/>
+				</waveblock>
+				<waveblock start="454625">
+					<pcmaliasblockfile summaryfile="e0000e78.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="1572864" aliaslen="262144" aliaschannel="0" min="-0.753052" max="0.795776" rms="0.215522"/>
+				</waveblock>
+				<waveblock start="716769">
+					<pcmaliasblockfile summaryfile="e000080f.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="1835008" aliaslen="262144" aliaschannel="0" min="-0.723938" max="0.669891" rms="0.193405"/>
+				</waveblock>
+				<waveblock start="978913">
+					<pcmaliasblockfile summaryfile="e00005db.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="2097152" aliaslen="262144" aliaschannel="0" min="-0.67923" max="0.650635" rms="0.147142"/>
+				</waveblock>
+				<waveblock start="1241057">
+					<pcmaliasblockfile summaryfile="e000063b.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="2359296" aliaslen="69284" aliaschannel="0" min="-0.002625" max="0.002411" rms="0.000499"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="201513__iamdead324__underground-prison" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1310341">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000a39.au" len="192481" min="-0.888428" max="0.746124" rms="0.215622"/>
+				</waveblock>
+				<waveblock start="192481">
+					<pcmaliasblockfile summaryfile="e0000e3d.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="1310720" aliaslen="262144" aliaschannel="1" min="-0.711151" max="0.673401" rms="0.199097"/>
+				</waveblock>
+				<waveblock start="454625">
+					<pcmaliasblockfile summaryfile="e00007b9.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="1572864" aliaslen="262144" aliaschannel="1" min="-0.815826" max="0.784821" rms="0.220819"/>
+				</waveblock>
+				<waveblock start="716769">
+					<pcmaliasblockfile summaryfile="e0000cf8.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="1835008" aliaslen="262144" aliaschannel="1" min="-0.763611" max="0.739319" rms="0.211599"/>
+				</waveblock>
+				<waveblock start="978913">
+					<pcmaliasblockfile summaryfile="e000003f.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="2097152" aliaslen="262144" aliaschannel="1" min="-0.686066" max="0.70813" rms="0.15442"/>
+				</waveblock>
+				<waveblock start="1241057">
+					<pcmaliasblockfile summaryfile="e0000fe5.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\201513__iamdead324__underground-prison.wav" aliasstart="2359296" aliaslen="69284" aliaschannel="1" min="-0.003174" max="0.002838" rms="0.000465"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

@@ -1,0 +1,2212 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Game Loop</name>
+    <events>
+        <variable comment="ponto de começo" constant="0" name="spawnPoint" sid="621003466963802" static="0" type="text"></variable>
+        <variable comment="0 = sem menu; 1 = com menu" constant="0" name="menu" sid="591027750702241" static="0" type="number">0</variable>
+        <variable comment="tempo de espera antes de fazer desaparecer/pinar uma chave" constant="0" name="tempoEsperaChave" sid="946676094624884" static="0" type="number">0.7</variable>
+        <include>Criação de objetos</include>
+        <comment>LOOP</comment>
+        <event-block sid="842660497609114">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="408581494754219" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="826604366188214" type="Personagem">
+                    <param id="0" name="X">player.X</param>
+                    <param id="1" name="Y">player.Y</param>
+                </action>
+                <action id="0" name="Sort all Objects in layer by Y" sid="953087835047676" type="ZSorter">
+                    <param id="0" name="Layer">&quot;Layer 0&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="899506398362200" type="Text">
+                    <param id="0" name="Text">&quot;FPS: &quot; &amp; fps &amp; newline &amp; &quot;maxSpeed: &quot; &amp; player.8Direction.MaxSpeed &amp; newline &amp; &quot;animação ação: &quot; &amp; player.açãoAnim &amp; newline &amp; &quot;ação: &quot; &amp; player.ação &amp; &quot;audio:&quot; &amp; somAmbiente</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="699286016566171">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="823412903526970" type="System" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set position to another object" sid="996749183245327" type="playerDir">
+                    <param id="0" name="Object">player</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="177615151105748" type="playerDir">
+                    <param id="0" name="Pin to">player</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+                <action id="-12" name="Set group active" sid="228579277113659" type="System">
+                    <param id="0" name="Group name">&quot;Chave&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="6" name="Set speed" sid="455889494096611" type="piscaOut">
+                    <param id="0" name="Speed">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="499545818869254">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="191317228259136" type="spawPoint">
+                            <param id="0" name="Instance variable">destino</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">spawnPoint</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="231617857825585" type="player">
+                            <param id="0" name="Object">spawPoint</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="745774872070189" title="AnimPlayer">
+            <sub-events>
+                <event-block sid="294742004081613">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="374796467731362" type="player">
+                            <param id="0" name="Instance variable">ação</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="818519375194038">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="715804422669296" type="playerDir">
+                                    <param id="0" name="Within">10</param>
+                                    <param id="1" name="Angle">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="338869843300109">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="236903259014474" type="player">
+                                            <param id="0" name="Instance variable">açãoAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;interage&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="407838784580358" type="Personagem">
+                                            <param id="0" name="Animation">&quot;interage_lado&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="248751384359987">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="114168188621643" type="Personagem">
+                                                    <param id="0" name="Instance variable">podeEspelhar</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="7" name="Set mirrored" sid="314246977602884" type="Personagem">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="481078922884328">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="385460687621133" type="player">
+                                            <param id="0" name="Instance variable">açãoAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;soco&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="916048291097278" type="Personagem">
+                                            <param id="0" name="Animation">&quot;soco_lado&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="420034643938987">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="217818247484752" type="Personagem">
+                                                    <param id="0" name="Instance variable">podeEspelhar</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="7" name="Set mirrored" sid="762992607894384" type="Personagem">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="884055978372586">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="643530681681037" type="playerDir">
+                                    <param id="0" name="Within">10</param>
+                                    <param id="1" name="Angle">180</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="424456816491063">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="363563738031025" type="player">
+                                            <param id="0" name="Instance variable">açãoAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;interage&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="953352166238804" type="Personagem">
+                                            <param id="0" name="Animation">&quot;interage_lado&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="508203204419783">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="555477558687288" type="Personagem">
+                                                    <param id="0" name="Instance variable">podeEspelhar</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="7" name="Set mirrored" sid="410206984612462" type="Personagem">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="756964371273935">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="322664191830361" type="player">
+                                            <param id="0" name="Instance variable">açãoAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;soco&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="695567961786533" type="Personagem">
+                                            <param id="0" name="Animation">&quot;soco_lado&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="684387352637364">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="268889297967641" type="Personagem">
+                                                    <param id="0" name="Instance variable">podeEspelhar</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="7" name="Set mirrored" sid="927150130618053" type="Personagem">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="721848219363965">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="556481210391077" type="playerDir">
+                                    <param id="0" name="Within">10</param>
+                                    <param id="1" name="Angle">90</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="199493173378506">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="652303764752306" type="player">
+                                            <param id="0" name="Instance variable">açãoAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;interage&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="249800887116573" type="Personagem">
+                                            <param id="0" name="Animation">&quot;interage_frente&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="490268992985821">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="156781405442914" type="player">
+                                            <param id="0" name="Instance variable">açãoAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;soco&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="808174666591934" type="Personagem">
+                                            <param id="0" name="Animation">&quot;soco_frente&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="553744465798326">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="176087782545977" type="playerDir">
+                                    <param id="0" name="Within">10</param>
+                                    <param id="1" name="Angle">270</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="412205035907767">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="963920032135015" type="player">
+                                            <param id="0" name="Instance variable">açãoAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;interage&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="437441601510126" type="Personagem">
+                                            <param id="0" name="Animation">&quot;interage_tras&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="665245620866469">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="335344409298147" type="player">
+                                            <param id="0" name="Instance variable">açãoAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;soco&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="343274198698834" type="Personagem">
+                                            <param id="0" name="Animation">&quot;soco_tras&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="510567778212843">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="184503900328532" type="player">
+                            <param id="0" name="Instance variable">ação</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="188528732861176">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="965493064344509" type="playerDir">
+                                    <param id="0" name="Within">10</param>
+                                    <param id="1" name="Angle">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="500009580293383">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="277949246643612" type="player">
+                                            <param id="0" name="Instance variable">andaAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="705241236601516">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" name="Is moving" sid="722635333160338" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="993357825142783" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;lado&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="190783116919573">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="913975971274760" type="Personagem">
+                                                            <param id="0" name="Instance variable">podeEspelhar</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="875638354001103" type="Personagem">
+                                                            <param id="0" name="State">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="360318640622369">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="482170412288246" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="805421440284812" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;i_lado&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="584548444422731">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="179213358300537" type="Personagem">
+                                                            <param id="0" name="Instance variable">podeEspelhar</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="369862644429739" type="Personagem">
+                                                            <param id="0" name="State">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="503092337439571">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="744244095486645" type="player">
+                                            <param id="0" name="Instance variable">andaAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;empurra&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="670393150028164">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" name="Is moving" sid="655909773188613" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="837237259865882" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;empurra_lado&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="387988318879577">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="806981264602958" type="Personagem">
+                                                            <param id="0" name="Instance variable">podeEspelhar</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="225004084305057" type="Personagem">
+                                                            <param id="0" name="State">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="204212689457243">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="599207805762772" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="954863413024749" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;i_lado&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="809321814278417">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="259578405075553" type="Personagem">
+                                                            <param id="0" name="Instance variable">podeEspelhar</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="805302079611498" type="Personagem">
+                                                            <param id="0" name="State">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="112189038026761">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="899116930037791" type="player">
+                                            <param id="0" name="Instance variable">andaAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;briga&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="295106336977136">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" name="Is moving" sid="958076640728988" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="851493689976026" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;defesaandando_lado&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="502297924788776">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="286063238668053" type="Personagem">
+                                                            <param id="0" name="Instance variable">podeEspelhar</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="378074547985134" type="Personagem">
+                                                            <param id="0" name="State">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="279075319532016">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="272280798596139" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="837600428009933" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;defesaparado_lado&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="703066319820638">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="246892550813382" type="Personagem">
+                                                            <param id="0" name="Instance variable">podeEspelhar</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="989457733453785" type="Personagem">
+                                                            <param id="0" name="State">0</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="614589092188452">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="886733008625686" type="playerDir">
+                                    <param id="0" name="Within">10</param>
+                                    <param id="1" name="Angle">180</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="764822278657319">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="639378826756251" type="player">
+                                            <param id="0" name="Instance variable">andaAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="356639012986876">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" name="Is moving" sid="193659760066827" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="370863478281632" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;lado&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="578383039220764">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="932772540854106" type="Personagem">
+                                                            <param id="0" name="Instance variable">podeEspelhar</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="834822828604815" type="Personagem">
+                                                            <param id="0" name="State">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="223868574956125">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="968072601056887" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="433015128222786" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;i_lado&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="917723408207778">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="677452303654155" type="Personagem">
+                                                            <param id="0" name="Instance variable">podeEspelhar</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="108943443751155" type="Personagem">
+                                                            <param id="0" name="State">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="460025214142440">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="765658442145927" type="player">
+                                            <param id="0" name="Instance variable">andaAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;empurra&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="396735766527317">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" name="Is moving" sid="222118105528333" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="187777411847625" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;empurra_lado&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="396901046293112">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="943054357329073" type="Personagem">
+                                                            <param id="0" name="Instance variable">podeEspelhar</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="101217327395077" type="Personagem">
+                                                            <param id="0" name="State">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="537031105244311">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="234180085578532" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="681437931560822" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;i_lado&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="736529713797041">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="200433438780712" type="Personagem">
+                                                            <param id="0" name="Instance variable">podeEspelhar</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="839953887008512" type="Personagem">
+                                                            <param id="0" name="State">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="163447562573530">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="754431013810911" type="player">
+                                            <param id="0" name="Instance variable">andaAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;briga&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="361606995765492">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" name="Is moving" sid="609946182599868" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="301790900414820" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;defesaandando_lado&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="143535189146865">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="551589190690428" type="Personagem">
+                                                            <param id="0" name="Instance variable">podeEspelhar</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="878704935077714" type="Personagem">
+                                                            <param id="0" name="State">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                        <event-block sid="106058871995640">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="444899362588988" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="593980825695872" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;defesaparado_lado&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="849705901062373">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="349835084652649" type="Personagem">
+                                                            <param id="0" name="Instance variable">podeEspelhar</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="7" name="Set mirrored" sid="136580763230919" type="Personagem">
+                                                            <param id="0" name="State">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="697157281203975">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="879234206468049" type="playerDir">
+                                    <param id="0" name="Within">10</param>
+                                    <param id="1" name="Angle">90</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="498763809217167">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="862845351941037" type="player">
+                                            <param id="0" name="Instance variable">andaAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="178087498936233">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" name="Is moving" sid="339051562141028" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="784557777871389" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;frente&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="927072746861895">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="463028479427148" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="809917590764951" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;i_frente&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="278928278197986">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="823768036574175" type="player">
+                                            <param id="0" name="Instance variable">andaAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;empurra&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="475071719084828">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" name="Is moving" sid="143288099215960" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="488683268926025" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;empurra_frente&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="690212651121796">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="854528128700207" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="751370709840161" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;i_frente&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="617252488457278">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="835996780664981" type="player">
+                                            <param id="0" name="Instance variable">andaAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;briga&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="851474301355374">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" name="Is moving" sid="551822630869056" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="884496483152646" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;defesaandando_frente&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="849949363792241">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="822630647763909" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="410955884689409" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;defesaparado_frente&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="939474852852376">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="749880488977257" type="playerDir">
+                                    <param id="0" name="Within">10</param>
+                                    <param id="1" name="Angle">270</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="511895780427127">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="415982666417555" type="player">
+                                            <param id="0" name="Instance variable">andaAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="981200800027224">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" name="Is moving" sid="833336875124874" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="325461808093105" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;tras&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="603799614223576">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="285777125736806" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="596267313072585" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;i_tras&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="102610543591511">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="606756495642531" type="player">
+                                            <param id="0" name="Instance variable">andaAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;empurra&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="408534103967240">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" name="Is moving" sid="683642109705303" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="454512977299812" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;empurra_tras&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="818545843683616">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="956564235038765" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="264044335232441" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;i_tras&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="949128628914862">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="567948096947990" type="player">
+                                            <param id="0" name="Instance variable">andaAnim</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;briga&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="682002116574650">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" name="Is moving" sid="506263544445416" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="413126602216339" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;defesaandando_tras&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="969060637034416">
+                                            <conditions>
+                                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="630644668341950" type="player" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="659406103379861" type="Personagem">
+                                                    <param id="0" name="Animation">&quot;defesaparado_tras&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment>Chave</comment>
+        <event-block sid="603924423306355">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="582394375219892" type="Personagem">
+                    <param id="0" name="Object">Chave</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="993310050895101" type="player">
+                    <param id="0" name="Instance variable">ação</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="215145456897709" type="player">
+                    <param id="0" name="Instance variable">chave</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="175567937207991" type="System">
+                    <param id="0" name="Seconds">tempoEsperaChave</param>
+                </action>
+                <action id="-12" name="Set group active" sid="475372759300459" type="System">
+                    <param id="0" name="Group name">&quot;Chave&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" disabled="1" sid="153922072154674" title="Loop Layout">
+            <sub-events>
+                <event-block disabled="1" sid="955555221279522">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="167209234135326" type="Personagem">
+                            <param id="0" name="Object">TriggerEsq</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="453832470771874" type="player">
+                            <param id="0" name="X">TriggerDir.X - 100</param>
+                            <param id="1" name="Y">player.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="367374732261637">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="651311637699387" type="Personagem">
+                            <param id="0" name="Object">TriggerDir</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="527745537143536" type="player">
+                            <param id="0" name="X">TriggerEsq.X + 100</param>
+                            <param id="1" name="Y">player.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="405566408662940" title="movControle">
+            <sub-events>
+                <event-block any="1" sid="811813881054154">
+                    <conditions>
+                        <condition id="3" name="Is button down" sid="927437394013593" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">14</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="943662715602371" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">0</param>
+                            <param id="2" name="Comparison">3</param>
+                            <param id="3" name="Value">-20</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="500218725525120" type="Keyboard">
+                            <param id="0" name="Key">37</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="367970666355823" type="player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="977290462624152" type="playerDir">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="667189523002329">
+                    <conditions>
+                        <condition id="3" name="Is button down" sid="180736229637905" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">15</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="221921434168477" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">0</param>
+                            <param id="2" name="Comparison">5</param>
+                            <param id="3" name="Value">20</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="352545543838943" type="Keyboard">
+                            <param id="0" name="Key">39</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="778658874067499" type="player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="393853619230354" type="playerDir">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="258536363104104">
+                    <conditions>
+                        <condition id="3" name="Is button down" sid="205865937928632" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">12</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="250821959194716" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">1</param>
+                            <param id="2" name="Comparison">3</param>
+                            <param id="3" name="Value">-20</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="253491935849644" type="Keyboard">
+                            <param id="0" name="Key">38</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="986094705977166" type="player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="353674396443828" type="playerDir">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="798678538773445">
+                    <conditions>
+                        <condition id="3" name="Is button down" sid="867772321375816" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">13</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="964336056404414" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">1</param>
+                            <param id="2" name="Comparison">5</param>
+                            <param id="3" name="Value">20</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="852738373844616" type="Keyboard">
+                            <param id="0" name="Key">40</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="235408529907667" type="player">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="271971959943849" type="playerDir">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" inactive="1" sid="832381022594313" title="movControleRev">
+            <sub-events>
+                <event-block any="1" sid="685333894123222">
+                    <conditions>
+                        <condition id="3" name="Is button down" sid="184738311527561" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">14</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="437780332134009" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">0</param>
+                            <param id="2" name="Comparison">3</param>
+                            <param id="3" name="Value">-20</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="650703433231372" type="Keyboard">
+                            <param id="0" name="Key">37</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="158195583716698" type="player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                        <action behavior="8Direction" disabled="1" id="7" name="Simulate control" sid="501974319986206" type="playerDir">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="786865425944687">
+                    <conditions>
+                        <condition id="3" name="Is button down" sid="820067090293666" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">15</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="837743155240772" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">0</param>
+                            <param id="2" name="Comparison">5</param>
+                            <param id="3" name="Value">20</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="925354723526106" type="Keyboard">
+                            <param id="0" name="Key">39</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="677597909444536" type="player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                        <action behavior="8Direction" disabled="1" id="7" name="Simulate control" sid="293338564439313" type="playerDir">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="960599061245739">
+                    <conditions>
+                        <condition id="3" name="Is button down" sid="819017231755086" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">12</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="998744372016828" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">1</param>
+                            <param id="2" name="Comparison">3</param>
+                            <param id="3" name="Value">-20</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="169465582577367" type="Keyboard">
+                            <param id="0" name="Key">38</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="940316995184330" type="player">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                        <action behavior="8Direction" disabled="1" id="7" name="Simulate control" sid="747938476413336" type="playerDir">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="222537522908177">
+                    <conditions>
+                        <condition id="3" name="Is button down" sid="727362915448963" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">13</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="702646303175743" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">1</param>
+                            <param id="2" name="Comparison">5</param>
+                            <param id="3" name="Value">20</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="244993801034190" type="Keyboard">
+                            <param id="0" name="Key">40</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="713749671250136" type="player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                        <action behavior="8Direction" disabled="1" id="7" name="Simulate control" sid="485145224056792" type="playerDir">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="736508561386290" title="BotAcao">
+            <sub-events>
+                <variable comment="duração da ação" constant="0" name="tempoAção" sid="468965685534990" static="0" type="number">0</variable>
+                <event-block sid="982449409834937">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="128584567610384" type="player">
+                            <param id="0" name="Instance variable">ação</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="8" name="Set enabled" sid="677265316538855" type="player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="100406894559368">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="151328246712022" type="player">
+                            <param id="0" name="Instance variable">ação</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="8" name="Set enabled" sid="135489229546999" type="player">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="611164052588643">
+                    <conditions>
+                        <condition id="3" name="On key released" sid="796199601008961" type="Keyboard">
+                            <param id="0" name="Key">32</param>
+                        </condition>
+                        <condition id="6" name="On button pressed" sid="938372182214382" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="495192548327143">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="429007235289442" type="player">
+                                    <param id="0" name="Instance variable">açãoAnim</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="691064160089984" type="System">
+                                    <param id="0" name="Variable">tempoAção</param>
+                                    <param id="1" name="Value">0.05</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="977741191348325">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="140891839131484" type="player">
+                                    <param id="0" name="Instance variable">açãoAnim</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;interage&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="344347148467235" type="System">
+                                    <param id="0" name="Variable">tempoAção</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="972908701596093">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="459755629099166" type="player">
+                                    <param id="0" name="Instance variable">açãoAnim</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;soco&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="552376438793863" type="System">
+                                    <param id="0" name="Variable">tempoAção</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="190489074719308">
+                            <conditions />
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="521186010035183" type="player">
+                                    <param id="0" name="Instance variable">ação</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="652551954297401" type="System">
+                                    <param id="0" name="Seconds">tempoAção</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="496810362364931" type="player">
+                                    <param id="0" name="Instance variable">ação</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="314729765698308" title="Portas">
+            <sub-events>
+                <event-block sid="646379385293581">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="355702441199635" type="porta_hit">
+                            <param id="0" name="Object">Personagem</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="780608099376366" type="player">
+                            <param id="0" name="Instance variable">ação</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="214155086847261" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="311407959739265">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="326011967481643" type="player">
+                                    <param id="0" name="Instance variable">chave</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="202335498831103">
+                                    <conditions>
+                                        <condition id="-15" name="Pick nearest/furthest" sid="649168255333494" type="pontoDePassagem">
+                                            <param id="0" name="Which">0</param>
+                                            <param id="1" name="X">Personagem.X</param>
+                                            <param id="2" name="Y">Personagem.Y</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="938211365806019" type="porta_hit" />
+                                        <action id="11" name="Set collisions enabled" sid="725872151391492" type="pontoDePassagem">
+                                            <param id="0" name="Collisions">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="853126969076316">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="473092251006916" type="player">
+                                            <param id="0" name="Object">pontoDePassagem</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="190146071854741" type="System">
+                                            <param id="0" name="Variable">proximoLayout</param>
+                                            <param id="1" name="Value">pontoDePassagem.proximoLayout</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="226161292043475" type="Function">
+                                            <param id="0" name="Name">&quot;trocaLayout&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="940544421869655">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="165080241832694" type="Chave">
+                                            <param id="0" name="Object">Personagem</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="589908003498130" type="player">
+                                            <param id="0" name="Instance variable">chave</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="928352224501042" type="System">
+                                            <param id="0" name="Seconds">tempoEsperaChave</param>
+                                        </action>
+                                        <action id="-9" name="Destroy" sid="616128324630361" type="Chave" />
+                                        <action id="-12" name="Set group active" sid="756561281874810" type="System">
+                                            <param id="0" name="Group name">&quot;Chave&quot;</param>
+                                            <param id="1" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="798242225084148">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="519226724511250" type="Personagem">
+                                            <param id="0" name="Object">porta</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="508726142331172" type="System">
+                                            <param id="0" name="Seconds">tempoEsperaChave</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="336785104711422" type="porta">
+                                            <param id="0" name="Instance variable">portaAberta</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="1" name="Set key" sid="615103064307275" type="ListaDePortas">
+                                            <param id="0" name="Key">str(porta.UID)</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="6" name="Set speed" sid="385823401342753" type="porta">
+                                            <param id="0" name="Speed">12</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="775886785834523">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="848393158573277" type="Personagem">
+                                            <param id="0" name="Object">porta2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="611234987498856" type="System">
+                                            <param id="0" name="Seconds">tempoEsperaChave</param>
+                                        </action>
+                                        <action disabled="1" id="-13" name="Set boolean" sid="190490748267000" type="porta">
+                                            <param id="0" name="Instance variable">portaAberta</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action disabled="1" id="1" name="Set key" sid="592748960379307" type="ListaDePortas">
+                                            <param id="0" name="Key">str(porta.UID)</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="6" name="Set speed" sid="290966951119368" type="porta2">
+                                            <param id="0" name="Speed">12</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="669878508925794">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="355678222736307" type="player">
+                                    <param id="0" name="Instance variable">chave</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="25" name="Play at object" sid="679309226012207" type="Audio">
+                                    <param id="0" name="Audio file">porta fechada_332963</param>
+                                    <param id="1" name="Loop">0</param>
+                                    <param id="2" name="Volume">0</param>
+                                    <param id="3" name="Object">porta_hit</param>
+                                    <param id="4" name="Inner angle">360</param>
+                                    <param id="5" name="Outer angle">360</param>
+                                    <param id="6" name="Outer gain">0</param>
+                                    <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Define próximo layout</comment>
+                <event-block sid="243747456276167">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="324891235331148" type="player">
+                            <param id="0" name="Object">pontoDePassagem</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="997104430758412" type="System">
+                            <param id="0" name="Variable">proximoLayout</param>
+                            <param id="1" name="Value">pontoDePassagem.proximoLayout</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="370717385875618" type="System">
+                            <param id="0" name="Variable">spawnPoint</param>
+                            <param id="1" name="Value">pontoDePassagem.proximoSpawn</param>
+                        </action>
+                        <action id="0" name="Call function" sid="947009264232504" type="Function">
+                            <param id="0" name="Name">&quot;trocaLayout&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment>Troca Layout</comment>
+        <variable comment="próximo layout" constant="0" name="proximoLayout" sid="714648261929426" static="0" type="text"></variable>
+        <event-block sid="952043861815208">
+            <conditions>
+                <condition id="0" name="On function" sid="916110205666234" type="Function">
+                    <param id="0" name="Name">&quot;trocaLayout&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="2" name="Stop" sid="646922725877798" type="AudioHelper">
+                    <param id="0" name="Tag">somAmbiente</param>
+                    <param id="1" name="Fade-out">1</param>
+                    <param id="2" name="Stop volume">&quot;-60dB&quot;</param>
+                </action>
+                <action id="0" name="Prepare Transition" sid="720168310643968" type="LayoutTransitionV2" />
+                <action id="-16" name="Wait" sid="231951298578760" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="1" name="Start Transition" sid="324232046301336" type="LayoutTransitionV2">
+                    <param id="0" name="Transition Name">11</param>
+                </action>
+                <action id="-25" name="Go to layout (by name)" sid="626286718293530" type="System">
+                    <param id="0" name="Layout">proximoLayout</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="Movimenta chave com a personagem" inactive="1" sid="649867978327405" title="Chave">
+            <sub-events>
+                <event-block sid="393037644136178">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="144203970919145" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="756180310947179" type="Chave">
+                            <param id="0" name="Object">Personagem</param>
+                            <param id="1" name="Image point (optional)">&quot;chave&quot;</param>
+                        </action>
+                        <action id="-29" name="Move to object" sid="381309733015089" type="Chave">
+                            <param id="0" name="Where">1</param>
+                            <param id="1" name="Object">Personagem</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="820091864528493">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="734671238391152" type="Chave">
+                                    <param id="0" name="Object">porta</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="468282615539783" type="Personagem">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Y co-ordinate">porta.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-29" name="Move to object" sid="622560694362145" type="Chave">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Object">porta</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="223898572197856">
+                    <conditions>
+                        <condition id="-11" name="Is within angle" sid="508840557959345" type="playerDir">
+                            <param id="0" name="Within">10</param>
+                            <param id="1" name="Angle">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="263428257742027" type="Chave">
+                            <param id="0" name="Angle">45</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="827240512926385" type="Chave">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="664269026517699">
+                    <conditions>
+                        <condition id="-11" name="Is within angle" sid="621678934446514" type="playerDir">
+                            <param id="0" name="Within">10</param>
+                            <param id="1" name="Angle">180</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="971512401685789" type="Chave">
+                            <param id="0" name="Angle">-45</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="966085167271158" type="Chave">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="190149675437023">
+                    <conditions>
+                        <condition id="-11" name="Is within angle" sid="793825785886933" type="playerDir">
+                            <param id="0" name="Within">10</param>
+                            <param id="1" name="Angle">90</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="449521364605793" type="Chave">
+                            <param id="0" name="Angle">90</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="483387754784503">
+                    <conditions>
+                        <condition id="-11" name="Is within angle" sid="895445422285116" type="playerDir">
+                            <param id="0" name="Within">10</param>
+                            <param id="1" name="Angle">270</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="508566335697608" type="Chave">
+                            <param id="0" name="Angle">90</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <variable comment="Som a tocar nos passos" constant="0" name="somPasso" sid="920492656879992" static="0" type="text"></variable>
+        <event-group description="" sid="368790608789460" title="Sons Player">
+            <sub-events>
+                <event-block sid="852534668885216">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="308766856363388" type="player">
+                            <param id="0" name="Object">BG_01</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="179843969104468" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="364482435873222" type="System">
+                            <param id="0" name="Variable">somPasso</param>
+                            <param id="1" name="Value">&quot;grama&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="171187407746617">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="521894488112720" type="player">
+                            <param id="0" name="Object">tapete</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="842507609003064" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="183900590483353" type="System">
+                            <param id="0" name="Variable">somPasso</param>
+                            <param id="1" name="Value">&quot;tapete&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="835323463811999">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="651216702384440" type="player">
+                            <param id="0" name="Object">PisoLodge</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="877392872648199" type="player">
+                            <param id="0" name="Object">pisoLiso</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="323377871010966" type="player">
+                            <param id="0" name="Object">BG_02</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="982505508434498" type="player">
+                            <param id="0" name="Object">PisoRepetivelCadeia</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="621246955794359" type="System">
+                            <param id="0" name="Variable">somPasso</param>
+                            <param id="1" name="Value">&quot;piso&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="353992770346694">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="192091057491592" type="System">
+                            <param id="0" name="Variable">somPasso</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;grama&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="737605034442940">
+                            <conditions>
+                                <condition behavior="8Direction" id="0" name="Is moving" sid="434929962796356" type="player" />
+                                <condition id="-4" name="Trigger once while true" sid="786551139627414" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="25" name="Play at object" sid="258107615029630" type="Audio">
+                                    <param id="0" name="Audio file">passosFloresta_85601</param>
+                                    <param id="1" name="Loop">1</param>
+                                    <param id="2" name="Volume">0</param>
+                                    <param id="3" name="Object">player</param>
+                                    <param id="4" name="Inner angle">360</param>
+                                    <param id="5" name="Outer angle">360</param>
+                                    <param id="6" name="Outer gain">0</param>
+                                    <param id="7" name="Tag (optional)">&quot;passosGrama&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="811877648345070">
+                            <conditions>
+                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="157083537305765" type="player" />
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Stop" sid="652982840846017" type="Audio">
+                                    <param id="0" name="Tag">&quot;passosGrama&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="623388656069042">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="619181413464701" type="System">
+                            <param id="0" name="Variable">somPasso</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;piso&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="660175784176884">
+                            <conditions>
+                                <condition behavior="8Direction" id="0" name="Is moving" sid="303440123563257" type="player" />
+                                <condition id="-4" name="Trigger once while true" sid="525508069172064" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="25" name="Play at object" sid="218997514316862" type="Audio">
+                                    <param id="0" name="Audio file">passosPiso</param>
+                                    <param id="1" name="Loop">1</param>
+                                    <param id="2" name="Volume">volume</param>
+                                    <param id="3" name="Object">player</param>
+                                    <param id="4" name="Inner angle">360</param>
+                                    <param id="5" name="Outer angle">360</param>
+                                    <param id="6" name="Outer gain">0</param>
+                                    <param id="7" name="Tag (optional)">&quot;passos&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="571269484039398">
+                            <conditions>
+                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="282066188841208" type="player" />
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Stop" sid="726885410663379" type="Audio">
+                                    <param id="0" name="Tag">&quot;passos&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="766419807573039">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="495405194607453" type="System">
+                            <param id="0" name="Variable">somPasso</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;tapete&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="652719578645904">
+                            <conditions>
+                                <condition behavior="8Direction" id="0" name="Is moving" sid="491800850533766" type="player" />
+                                <condition id="-4" name="Trigger once while true" sid="597993252627996" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="25" name="Play at object" sid="547951071163933" type="Audio">
+                                    <param id="0" name="Audio file">passosTapete</param>
+                                    <param id="1" name="Loop">1</param>
+                                    <param id="2" name="Volume">volume</param>
+                                    <param id="3" name="Object">player</param>
+                                    <param id="4" name="Inner angle">360</param>
+                                    <param id="5" name="Outer angle">360</param>
+                                    <param id="6" name="Outer gain">0</param>
+                                    <param id="7" name="Tag (optional)">&quot;passos&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="767093309676491">
+                            <conditions>
+                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="448373837771195" type="player" />
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Stop" sid="910430707563253" type="Audio">
+                                    <param id="0" name="Tag">&quot;passos&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <variable comment="volume dos passos em piso liso" constant="0" name="volume" sid="881572370078605" static="0" type="number">-10</variable>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="147253777004512" title="Menu">
+            <sub-events>
+                <event-block sid="996009481327637">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="260593162538065" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="851493266157355" type="System">
+                            <param id="0" name="Layer">&quot;Menu&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="367039432086975">
+                    <conditions>
+                        <condition id="3" name="On key released" sid="959445754531075" type="Keyboard">
+                            <param id="0" name="Key">13</param>
+                        </condition>
+                        <condition id="7" name="On button released" sid="304314369614199" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">9</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Start" sid="197586599788005" type="pisca_">
+                            <param id="0" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="968502563999103" type="System">
+                            <param id="0" name="Variable">menu</param>
+                            <param id="1" name="Value">abs(menu-1)</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="240035106449989" type="System">
+                            <param id="0" name="Seconds">0.4</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="327298200598266">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="121514364201598" type="System">
+                            <param id="0" name="Variable">menu</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="464542736385123" type="System">
+                            <param id="0" name="Layer">&quot;Menu&quot;</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="491265237711845" type="System">
+                            <param id="0" name="Seconds">0.6</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="197309363750315" type="System">
+                            <param id="0" name="Time scale">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="207357565886656">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="656222654857015" type="System">
+                            <param id="0" name="Variable">menu</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set time scale" sid="912095028716728" type="System">
+                            <param id="0" name="Time scale">1</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="545388068947364" type="System">
+                            <param id="0" name="Layer">&quot;Menu&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="120806339743374">
+            <conditions>
+                <condition id="0" name="On function" sid="747628122771410" type="Function">
+                    <param id="0" name="Name">&quot;acordar&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Set group active" sid="104927799503462" type="System">
+                    <param id="0" name="Group name">&quot;AnimPlayer&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action behavior="8Direction" id="8" name="Set enabled" sid="861633489948259" type="player">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-12" name="Set group active" sid="571603189193275" type="System">
+                    <param id="0" name="Group name">&quot;BotAcao&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="642845260719784" type="Personagem">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="424973113224045" type="Personagem">
+                    <param id="0" name="Animation">&quot;acordando_lado&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="6" name="Set speed" sid="879526881799938" type="Personagem">
+                    <param id="0" name="Speed">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="557594793025320" type="System">
+                    <param id="0" name="Seconds">10</param>
+                </action>
+                <action id="6" name="Set speed" sid="356845542079658" type="Personagem">
+                    <param id="0" name="Speed">8</param>
+                </action>
+                <action id="-16" name="Wait" sid="728137873462741" type="System">
+                    <param id="0" name="Seconds">3</param>
+                </action>
+                <action behavior="8Direction" id="8" name="Set enabled" sid="728060250117572" type="player">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="-12" name="Set group active" sid="657318096162203" type="System">
+                    <param id="0" name="Group name">&quot;BotAcao&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+                <action id="-12" name="Set group active" sid="702570257789508" type="System">
+                    <param id="0" name="Group name">&quot;AnimPlayer&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="658260066716955">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="343339249105929" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="446926459519342">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="584123155296260" type="System">
+                            <param id="0" name="Object">porta</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="140425598027723">
+                            <conditions>
+                                <condition id="3" inverted="1" name="Has key" sid="756283631745803" type="ListaDePortas">
+                                    <param id="0" name="Key">str(porta.UID)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Add key" sid="659286089120160" type="ListaDePortas">
+                                    <param id="0" name="Key">str(porta.UID)</param>
+                                    <param id="1" name="Value">porta.portaAberta</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="119445062686647">
+                            <conditions>
+                                <condition id="3" name="Has key" sid="968741108707006" type="ListaDePortas">
+                                    <param id="0" name="Key">str(porta.UID)</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="322082433061651">
+                                    <conditions>
+                                        <condition id="0" name="Compare value" sid="686757587351775" type="ListaDePortas">
+                                            <param id="0" name="Key">str(porta.UID)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="503672214191822" type="porta">
+                                            <param id="0" name="Instance variable">portaAberta</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="524547587609517">
+                                    <conditions>
+                                        <condition id="0" name="Compare value" sid="314532013568781" type="ListaDePortas">
+                                            <param id="0" name="Key">str(porta.UID)</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="387048426306357" type="porta">
+                                            <param id="0" name="Instance variable">portaAberta</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="587921685708188">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="838406675161649" type="porta">
+                                    <param id="0" name="Instance variable">portaAberta</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="102095637480725" type="porta">
+                                    <param id="0" name="Frame number">12</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="526976697982393">
+                                    <conditions>
+                                        <condition id="-15" name="Pick nearest/furthest" sid="280169466290350" type="pontoDePassagem">
+                                            <param id="0" name="Which">0</param>
+                                            <param id="1" name="X">porta.X</param>
+                                            <param id="2" name="Y">porta.Y</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="11" name="Set collisions enabled" sid="333402898788099" type="pontoDePassagem">
+                                            <param id="0" name="Collisions">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="861768579196229">
+                                    <conditions>
+                                        <condition id="-15" name="Pick nearest/furthest" sid="837770508552729" type="porta_hit">
+                                            <param id="0" name="Which">0</param>
+                                            <param id="1" name="X">porta.X</param>
+                                            <param id="2" name="Y">porta.Y</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="557505850930129" type="porta_hit" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block disabled="1" sid="719195290842674">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="482249643528050" type="System" />
+                <condition id="-8" name="Is boolean instance variable set" sid="995271095453630" type="porta">
+                    <param id="0" name="Instance variable">portaAberta</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block disabled="1" sid="837689871343272">
+                    <conditions>
+                        <condition id="-15" name="Pick nearest/furthest" sid="549532866204001" type="pontoDePassagem">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="X">Personagem.X</param>
+                            <param id="2" name="Y">Personagem.Y</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-block>
+        <variable comment="Som a ser tocado no ambiente. Cada layout carrega um novo som." constant="0" name="somAmbiente" sid="813358412859398" static="0" type="text"></variable>
+        <event-group description="" sid="469274370138192" title="SomAmbiente">
+            <sub-events>
+                <event-block sid="639052562484447">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="861778413974432" type="System">
+                            <param id="0" name="Variable">somAmbiente</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;floresta&quot;</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="987237602360811" type="System" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="0" name="Play" sid="219413125650068" type="Audio">
+                            <param id="0" name="Audio file">floresta</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">somAmbiente</param>
+                        </action>
+                        <action id="1" name="Play" sid="687548774341256" type="AudioHelper">
+                            <param id="0" name="Audio file">floresta</param>
+                            <param id="1" name="Loop">1</param>
+                            <param id="2" name="End volume">1</param>
+                            <param id="3" name="Tag (optional)">somAmbiente</param>
+                            <param id="4" name="Fade-in time">2</param>
+                            <param id="5" name="Start volume">&quot;-60dB&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="754382297913885">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="618036796689867" type="System">
+                            <param id="0" name="Variable">somAmbiente</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;ruidoBranco&quot;</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="680298522080818" type="System" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="0" name="Play" sid="175634524098401" type="Audio">
+                            <param id="0" name="Audio file">salaCha</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">somAmbiente</param>
+                        </action>
+                        <action id="1" name="Play" sid="951916808925576" type="AudioHelper">
+                            <param id="0" name="Audio file">salaCha</param>
+                            <param id="1" name="Loop">1</param>
+                            <param id="2" name="End volume">1</param>
+                            <param id="3" name="Tag (optional)">somAmbiente</param>
+                            <param id="4" name="Fade-in time">2</param>
+                            <param id="5" name="Start volume">&quot;-60dB&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="605755827995567">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="672805251949200" type="System">
+                            <param id="0" name="Variable">somAmbiente</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;ruas&quot;</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="670673063021935" type="System" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="0" name="Play" sid="505261446071033" type="Audio">
+                            <param id="0" name="Audio file">ruas</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">somAmbiente</param>
+                        </action>
+                        <action id="1" name="Play" sid="580198873142518" type="AudioHelper">
+                            <param id="0" name="Audio file">ruas</param>
+                            <param id="1" name="Loop">1</param>
+                            <param id="2" name="End volume">1</param>
+                            <param id="3" name="Tag (optional)">somAmbiente</param>
+                            <param id="4" name="Fade-in time">2</param>
+                            <param id="5" name="Start volume">&quot;-60dB&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="759032647959162">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="106885114177638" type="System">
+                            <param id="0" name="Variable">somAmbiente</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;igreja&quot;</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="298343201705422" type="System" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="0" name="Play" sid="120158646293778" type="Audio">
+                            <param id="0" name="Audio file">igreja</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">somAmbiente</param>
+                        </action>
+                        <action id="1" name="Play" sid="527124120907916" type="AudioHelper">
+                            <param id="0" name="Audio file">igreja</param>
+                            <param id="1" name="Loop">1</param>
+                            <param id="2" name="End volume">1</param>
+                            <param id="3" name="Tag (optional)">somAmbiente</param>
+                            <param id="4" name="Fade-in time">2</param>
+                            <param id="5" name="Start volume">&quot;-60dB&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="520726350438474">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="227694984411288" type="System">
+                            <param id="0" name="Variable">somAmbiente</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;cadeia&quot;</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="439712484579654" type="System" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="0" name="Play" sid="160390467911038" type="Audio">
+                            <param id="0" name="Audio file">cadeia</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">somAmbiente</param>
+                        </action>
+                        <action id="1" name="Play" sid="168501949964629" type="AudioHelper">
+                            <param id="0" name="Audio file">cadeia</param>
+                            <param id="1" name="Loop">1</param>
+                            <param id="2" name="End volume">1</param>
+                            <param id="3" name="Tag (optional)">somAmbiente</param>
+                            <param id="4" name="Fade-in time">2</param>
+                            <param id="5" name="Start volume">&quot;-60dB&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="239157863183505" title="Pilulas">
+            <sub-events>
+                <event-block sid="440136856324765">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="223104381045040" type="Personagem">
+                            <param id="0" name="Object">pilula</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="742186016343231" type="player">
+                            <param id="0" name="Instance variable">ação</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="625904477139573">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="700544369449361" type="pilula">
+                                    <param id="0" name="Instance variable">efeito</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;reverso&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="647330584940604" type="pilula" />
+                                <action id="-12" name="Set group active" sid="385230719111661" type="System">
+                                    <param id="0" name="Group name">&quot;movControle&quot;</param>
+                                    <param id="1" name="State">2</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="528537713761076" type="System">
+                                    <param id="0" name="Group name">&quot;movControleRev&quot;</param>
+                                    <param id="1" name="State">2</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="339002850634218" type="System">
+                                    <param id="0" name="Seconds">10</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="827511497953464" type="System">
+                                    <param id="0" name="Group name">&quot;movControle&quot;</param>
+                                    <param id="1" name="State">2</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="447589293171388" type="System">
+                                    <param id="0" name="Group name">&quot;movControleRev&quot;</param>
+                                    <param id="1" name="State">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="478335976200506">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="721633180411326" type="System" />
+            </conditions>
+            <actions />
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Escola ES</name>
+    <events>
+        <include>Game Loop</include>
+        <event-block sid="267018100710987">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="756552527036650" type="System" />
+            </conditions>
+            <actions>
+                <action id="-29" name="Move to object" sid="440880516873928" type="portaEscola">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Object">escolaParedeFrente</param>
+                </action>
+                <action id="-29" name="Move to object" sid="931087282169489" type="quadroDeAvisos">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Object">escolaParedeFrente</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="301424937806093">
+            <conditions>
+                <condition id="-11" name="For Each" sid="702135037707901" type="System">
+                    <param id="0" name="Object">NPCescola</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="841077465199124" type="wayPoint">
+                    <param id="0" name="Instance variable">wayPoint</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">NPCescola.proximoWaypoint</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="261348697549913" type="NPCescola">
+                    <param id="0" name="Angle">angle(NPCescola.X, NPCescola.Y, wayPoint.X, wayPoint.Y)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="371619026479795">
+                    <conditions>
+                        <condition id="-41" name="Is between angles" sid="401873047152522" type="System">
+                            <param id="0" name="Angle">angle(NPCescola.X, NPCescola.Y, wayPoint.X, wayPoint.Y)</param>
+                            <param id="1" name="First angle">-10</param>
+                            <param id="2" name="Second angle">10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="571940119007591" type="NPCescola">
+                            <param id="0" name="Animation">&quot;lado&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="897682992199090" type="NPCescola">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="897454507436810">
+                    <conditions>
+                        <condition id="-41" name="Is between angles" sid="281066620859587" type="System">
+                            <param id="0" name="Angle">angle(NPCescola.X, NPCescola.Y, wayPoint.X, wayPoint.Y)</param>
+                            <param id="1" name="First angle">80</param>
+                            <param id="2" name="Second angle">100</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="469353237783633" type="NPCescola">
+                            <param id="0" name="Animation">&quot;frente&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="236344844553911">
+                    <conditions>
+                        <condition id="-41" name="Is between angles" sid="471987351892720" type="System">
+                            <param id="0" name="Angle">angle(NPCescola.X, NPCescola.Y, wayPoint.X, wayPoint.Y)</param>
+                            <param id="1" name="First angle">170</param>
+                            <param id="2" name="Second angle">190</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="105177833523143" type="NPCescola">
+                            <param id="0" name="Animation">&quot;lado&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="720627748100342" type="NPCescola">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="283969323410604">
+                    <conditions>
+                        <condition id="-41" name="Is between angles" sid="330393144754205" type="System">
+                            <param id="0" name="Angle">angle(NPCescola.X, NPCescola.Y, wayPoint.X, wayPoint.Y)</param>
+                            <param id="1" name="First angle">260</param>
+                            <param id="2" name="Second angle">280</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="988486265256565" type="NPCescola">
+                            <param id="0" name="Animation">&quot;tras&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="271321261233084">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="544710050172857" type="NPCescola">
+                    <param id="0" name="Object">wayPoint</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="806752721432353" type="wayPoint">
+                    <param id="0" name="Instance variable">wayPoint</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">NPCescola.proximoWaypoint</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="724723665737416" type="NPCescola">
+                    <param id="0" name="Instance variable">proximoWaypoint</param>
+                    <param id="1" name="Value">wayPoint.proximoWP</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="764363376332915">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="459414681091735" type="NPCescola">
+                    <param id="0" name="Object">hit_destroyBoxes</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="857075888976885" type="NPCescola" />
+            </actions>
+        </event-block>
+        <event-block sid="730617514108986">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="681590485507367" type="System">
+                    <param id="0" name="Interval (seconds)">2</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="228401674838197">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="958957349992937" type="System">
+                            <param id="0" name="Object">NPCspawner</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="206312925133360" type="System">
+                            <param id="0" name="Object to create">NPCescola</param>
+                            <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                            <param id="2" name="X">NPCspawner.X</param>
+                            <param id="3" name="Y">NPCspawner.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="852329463650210">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="678291027785074" type="NPCescola">
+                    <param id="0" name="Object">NPCspawner</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="149042509454374" type="NPCescola">
+                    <param id="0" name="Instance variable">proximoWaypoint</param>
+                    <param id="1" name="Value">NPCspawner.wpInicial</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="673368710006016">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="861487031789833" type="detonaAnimais">
+                    <param id="0" name="Object">Personagem</param>
+                </condition>
+                <condition id="-16" name="Is on layer" sid="238778841019179" type="BG_00">
+                    <param id="0" name="Layer">&quot;acima2&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Set opacity" sid="726002004442775" type="BG_00">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="541179377532544">
+                    <conditions>
+                        <condition disabled="1" id="-1" name="Every tick" sid="174167719190469" type="System" />
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="276508204211518">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="570649142017848" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="821246929393784" type="System">
+                    <param id="0" name="Variable">somAmbiente</param>
+                    <param id="1" name="Value">&quot;cadeia&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

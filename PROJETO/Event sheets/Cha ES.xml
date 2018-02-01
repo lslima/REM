@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Cha ES</name>
+    <events>
+        <include>Game Loop</include>
+        <comment>Seleciona a ação a ser executada por padrão na sala atual</comment>
+        <event-block sid="211931913798070">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="854905320503610" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="418537283503691" type="player">
+                    <param id="0" name="Instance variable">açãoAnim</param>
+                    <param id="1" name="Value">&quot;interage&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="216724108847854" type="System">
+                    <param id="0" name="Variable">somAmbiente</param>
+                    <param id="1" name="Value">&quot;ruidoBranco&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="116281238850198">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="655546312986484" type="System" />
+            </conditions>
+            <actions>
+                <action id="-29" name="Move to object" sid="927412367300271" type="xicara">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Object">Mesa</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Passagem do chá ao hub</comment>
+        <event-block sid="518987381177095">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="582223379099668" type="Personagem">
+                    <param id="0" name="Object">xicara</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="600341738650801" type="player">
+                    <param id="0" name="Instance variable">ação</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="993640204746894" type="System">
+                    <param id="0" name="Seconds">1</param>
+                </action>
+                <action id="6" name="Set speed" sid="172949129096195" type="piscaOut">
+                    <param id="0" name="Speed">8</param>
+                </action>
+                <action id="-9" name="Set value" sid="888053104206112" type="System">
+                    <param id="0" name="Variable">proximoLayout</param>
+                    <param id="1" name="Value">&quot;ChaCS&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="680631814988655" type="System">
+                    <param id="0" name="Seconds">3</param>
+                </action>
+                <action id="0" name="Call function" sid="696156724609065" type="Function">
+                    <param id="0" name="Name">&quot;trocaLayout&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="696002574327741" type="System">
+                    <param id="0" name="Variable">spawnPoint</param>
+                    <param id="1" name="Value">&quot;inicial&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

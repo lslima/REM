@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Bairro ES</name>
+    <events>
+        <include>Game Loop</include>
+        <event-block sid="649342047041842">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="663205938676110" type="System" />
+            </conditions>
+            <actions>
+                <action id="-7" name="Set size" sid="526548009017782" type="TriggerDir">
+                    <param id="0" name="Width">1</param>
+                    <param id="1" name="Height">3000</param>
+                </action>
+                <action id="-7" name="Set size" sid="385986941568925" type="TriggerEsq">
+                    <param id="0" name="Width">1</param>
+                    <param id="1" name="Height">3000</param>
+                </action>
+                <action id="11" name="Set collisions enabled" sid="749009353497844" type="Chave">
+                    <param id="0" name="Collisions">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="825006204530174" type="player">
+                    <param id="0" name="Instance variable">açãoAnim</param>
+                    <param id="1" name="Value">&quot;interage&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="575042529736734" type="System">
+                    <param id="0" name="Variable">somAmbiente</param>
+                    <param id="1" name="Value">&quot;ruas&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="124283606867644" title="Escala Layout">
+            <sub-events>
+                <event-block sid="890343654497165">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="791994711809503" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-20" name="Set layout scale" sid="320056872030977" type="System">
+                            <param id="0" name="Scale">0.7</param>
+                        </action>
+                        <action id="-17" name="Set layer scale" sid="515381333015148" type="System">
+                            <param id="0" name="Layer">&quot;Debug&quot;</param>
+                            <param id="1" name="Scale">1/LayoutScale</param>
+                        </action>
+                        <action id="-17" name="Set layer scale" sid="884031794755176" type="System">
+                            <param id="0" name="Layer">&quot;Vignette&quot;</param>
+                            <param id="1" name="Scale">1/LayoutScale</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="932054430388769">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="193440164067111" type="Personagem">
+                    <param id="0" name="Object">lataDeLixo</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="737020336997913" type="player">
+                    <param id="0" name="Instance variable">ação</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="675985950666787" type="System">
+                    <param id="0" name="Seconds">0.8</param>
+                </action>
+                <action id="5" name="Set frame" sid="308725076816723" type="lataDeLixo">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="154528108357709">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="101136371840400" type="System" />
+                <condition id="3" name="Compare frame" sid="516218037700946" type="lataDeLixo">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Number">1</param>
+                </condition>
+                <condition id="-15" name="Pick nearest/furthest" sid="284361733685755" type="lataDeLixo">
+                    <param id="0" name="Which">0</param>
+                    <param id="1" name="X">Chave.X</param>
+                    <param id="2" name="Y">Chave.Y</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-29" name="Move to object" sid="729873899089530" type="Chave">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Object">lataDeLixo</param>
+                </action>
+                <action id="-16" name="Wait" sid="260670588425195" type="System">
+                    <param id="0" name="Seconds">1</param>
+                </action>
+                <action id="11" name="Set collisions enabled" sid="249380685733264" type="Chave">
+                    <param id="0" name="Collisions">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="703468391027880">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="354200428836323" type="Chave">
+                    <param id="0" name="Object">portao</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="334526546926974" type="player">
+                    <param id="0" name="Instance variable">ação</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="497549960034504" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="368621452346025">
+                    <conditions>
+                        <condition id="-15" name="Pick nearest/furthest" sid="876874193066615" type="portao">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="X">Chave.X</param>
+                            <param id="2" name="Y">Chave.Y</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="440344200269668" type="System">
+                            <param id="0" name="Seconds">0.8</param>
+                        </action>
+                        <action id="6" name="Set speed" sid="373310406272853" type="portao">
+                            <param id="0" name="Speed">12</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="722063736832625" type="player">
+                            <param id="0" name="Instance variable">chave</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="809074192883023" type="System">
+                            <param id="0" name="Seconds">tempoEsperaChave</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="775503648138363" type="Chave" />
+                        <action id="-12" name="Set group active" sid="809502400886158" type="System">
+                            <param id="0" name="Group name">&quot;Chave&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

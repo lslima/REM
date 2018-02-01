@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Fogo ES</name>
+    <events>
+        <include>Game Loop</include>
+        <variable constant="0" name="playerX" sid="514827140859876" static="0" type="number">0</variable>
+        <variable constant="0" name="playerY" sid="280853077794230" static="0" type="number">0</variable>
+        <event-group description="" sid="969271411827384" title="GamepadSuportPedra">
+            <sub-events>
+                <event-block any="1" sid="469707378433479">
+                    <conditions>
+                        <condition id="3" name="Is button down" sid="565282911298698" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">14</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="225358315283601" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">0</param>
+                            <param id="2" name="Comparison">3</param>
+                            <param id="3" name="Value">-20</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="311022793824394" type="pedraRaio">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="483496196232839">
+                    <conditions>
+                        <condition id="3" name="Is button down" sid="923389519526513" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">15</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="466177167981799" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">0</param>
+                            <param id="2" name="Comparison">5</param>
+                            <param id="3" name="Value">20</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="125641875790604" type="pedraRaio">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="445052435666711">
+                    <conditions>
+                        <condition id="3" name="Is button down" sid="855768775403973" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">12</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="510976099608255" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">1</param>
+                            <param id="2" name="Comparison">3</param>
+                            <param id="3" name="Value">-20</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="262128814087490" type="pedraRaio">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="195458556865822">
+                    <conditions>
+                        <condition id="3" name="Is button down" sid="110626840186252" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">13</param>
+                        </condition>
+                        <condition id="5" name="Compare axis" sid="839676568955513" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">1</param>
+                            <param id="2" name="Comparison">5</param>
+                            <param id="3" name="Value">20</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="243358724305343" type="pedraRaio">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="991321583555155" title="Empurra">
+            <sub-events>
+                <event-block sid="699712477936189">
+                    <conditions>
+                        <condition disabled="1" id="1" name="Is overlapping another object" sid="241074684287029" type="pedraRaio">
+                            <param id="0" name="Object">playerDir</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="979008214997844" type="pedraRaio">
+                            <param id="0" name="Object">limitePersonagem</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="399411442329838" type="System" />
+                        <condition behavior="8Direction" id="0" name="Is moving" sid="347465072394193" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="-14" name="Toggle boolean" sid="299908187066485" type="pedraRaio">
+                            <param id="0" name="Instance variable">empurrar</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="131888457490858">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="801292584619009" type="pedraRaio">
+                            <param id="0" name="Instance variable">empurrar</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="8" name="Set enabled" sid="722490441317663" type="pedraRaio">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action behavior="8Direction" id="4" name="Set max speed" sid="634412691378697" type="player">
+                            <param id="0" name="Max Speed">200</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="426076931215198" type="player">
+                            <param id="0" name="Instance variable">andaAnim</param>
+                            <param id="1" name="Value">&quot;&quot;</param>
+                        </action>
+                        <action behavior="Pin" id="1" name="Unpin" sid="252515948920990" type="pedraRaio" />
+                    </actions>
+                </event-block>
+                <event-block sid="306475777674586">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="398440263894717" type="pedraRaio">
+                            <param id="0" name="Instance variable">empurrar</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="8" name="Set enabled" sid="348311814557119" type="pedraRaio">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="8Direction" id="4" name="Set max speed" sid="572584382950858" type="player">
+                            <param id="0" name="Max Speed">100</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="987594240625851" type="player">
+                            <param id="0" name="Instance variable">andaAnim</param>
+                            <param id="1" name="Value">&quot;empurra&quot;</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="726351683685588" type="pedraRaio">
+                            <param id="0" name="Pin to">player</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="116809972532583">
+                            <conditions>
+                                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="841626730540121" type="player" />
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="253935533969804" type="pedraRaio">
+                                    <param id="0" name="Instance variable">empurrar</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="696211910199242">
+                            <conditions>
+                                <condition behavior="8Direction" id="0" name="Is moving" sid="719241803073042" type="player" />
+                                <condition id="-4" name="Trigger once while true" sid="913820460180636" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="403758490315133" type="pedraRaio">
+                                    <param id="0" name="Instance variable">direcao</param>
+                                    <param id="1" name="Value">player.8Direction.MovingAngle</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="856923604151251">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="951933892743956" type="System" />
+            </conditions>
+            <actions>
+                <action id="-29" name="Move to object" sid="763260135442204" type="fogo">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Object">Fogueira</param>
+                </action>
+                <action id="-29" name="Move to object" sid="997690473412188" type="Chave">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Object">Fogueira</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="797976194272787" type="limitePersonagem">
+                    <param id="0" name="Object">Personagem</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="229103159102122">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="963600575201337" type="System">
+                    <param id="0" name="Interval (seconds)">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="6" name="Set speed" sid="104615162768461" type="fogo">
+                    <param id="0" name="Speed">random(10,18)</param>
+                </action>
+            </actions>
+        </event-block>
+        <variable comment="vidas do fogo" constant="0" name="fogoVidas" sid="671346811695933" static="0" type="number">3</variable>
+        <event-group description="" sid="407882788002559" title="ApagaFogo">
+            <sub-events>
+                <event-block sid="406323586757272">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="474792347975036" type="detonaAnimais">
+                            <param id="0" name="Object">pedraRaio</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="262975064923284" type="System">
+                            <param id="0" name="Variable">fogoVidas</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="422600685824898">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="535471990958810" type="System">
+                            <param id="0" name="Variable">fogoVidas</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="448406316938366" type="fogo">
+                            <param id="0" name="Animation">&quot;3fogos&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="895025090254380">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="449429417284427" type="System">
+                            <param id="0" name="Variable">fogoVidas</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="782786196756912" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="260978407071347" type="System">
+                            <param id="0" name="Object to create">fumaca</param>
+                            <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                            <param id="2" name="X">fogo.X</param>
+                            <param id="3" name="Y">fogo.Y</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="670180402249610" type="fogo">
+                            <param id="0" name="Animation">&quot;2fogos&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="602909000935498" type="apagaLuz">
+                            <param id="0" name="Target is">3</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">30</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="500506384100861" type="apagaLuz">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="100053407298009">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="525985314787713" type="System">
+                            <param id="0" name="Variable">fogoVidas</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="848163488244770" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="463272917701354" type="System">
+                            <param id="0" name="Object to create">fumaca</param>
+                            <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                            <param id="2" name="X">fogo.X</param>
+                            <param id="3" name="Y">fogo.Y</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="634893237298093" type="fogo">
+                            <param id="0" name="Animation">&quot;1fogo&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="411245154977356" type="apagaLuz">
+                            <param id="0" name="Target is">3</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">60</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="310436928941109" type="apagaLuz">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="664908825842839">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="520609001443223" type="System">
+                            <param id="0" name="Variable">fogoVidas</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="901156255857798" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="906196845530468" type="System">
+                            <param id="0" name="Object to create">fumaca</param>
+                            <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                            <param id="2" name="X">fogo.X</param>
+                            <param id="3" name="Y">fogo.Y</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="547394909605734" type="fogo" />
+                        <action behavior="LiteTween" id="3" name="Set target" sid="914804050136302" type="apagaLuz">
+                            <param id="0" name="Target is">3</param>
+                            <param id="1" name="Relativity">0</param>
+                            <param id="2" name="Value">90</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="427631987359666" type="apagaLuz">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                        <action id="11" name="Set collisions enabled" sid="172273839561603" type="pontoDePassagem">
+                            <param id="0" name="Collisions">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="136772281407946">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="924014047450533" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="437742212557231" type="System">
+                    <param id="0" name="Variable">somAmbiente</param>
+                    <param id="1" name="Value">&quot;floresta&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

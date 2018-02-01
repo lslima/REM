@@ -1,0 +1,111 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="salaCha_data" version="1.3.0" audacityversion="2.1.3" sel0="2.7399546485" sel1="2.7399546485" vpos="0" h="0.0000000000" zoom="21.5332031250" rate="48000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="341835__ianstargem__spook-ambience-interior" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="0.015849" pan="0.0">
+		<waveclip offset="4.31891156">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="696320">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000378.au" len="138137" min="-0.475348" max="0.479026" rms="0.134968"/>
+				</waveblock>
+				<waveblock start="138137">
+					<pcmaliasblockfile summaryfile="e0000796.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\341835__ianstargem__spook-ambience-interior.wav" aliasstart="524288" aliaslen="262144" aliaschannel="0" min="-0.595789" max="0.654539" rms="0.17226"/>
+				</waveblock>
+				<waveblock start="400281">
+					<simpleblockfile filename="e0000b40.au" len="148019" min="-0.565987" max="0.554815" rms="0.163609"/>
+				</waveblock>
+				<waveblock start="548300">
+					<simpleblockfile filename="e0000935.au" len="148020" min="-0.50143" max="0.505691" rms="0.143895"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="2">
+				<controlpoint t="0.000005000000" val="0.000000100000"/>
+				<controlpoint t="12.213696145125" val="1.000000000000"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="341835__ianstargem__spook-ambience-interior" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="0.015849" pan="0.0">
+		<waveclip offset="4.31891156">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="696320">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000c4f.au" len="138137" min="-0.809089" max="0.869154" rms="0.269567"/>
+				</waveblock>
+				<waveblock start="138137">
+					<pcmaliasblockfile summaryfile="e0000f39.auf" aliasfile="C:\LEO\Dropbox\blackLogdge\sons\341835__ianstargem__spook-ambience-interior.wav" aliasstart="524288" aliaslen="262144" aliaschannel="1" min="-0.975161" max="0.956298" rms="0.287553"/>
+				</waveblock>
+				<waveblock start="400281">
+					<simpleblockfile filename="e00002a8.au" len="148019" min="-0.970102" max="0.894303" rms="0.292238"/>
+				</waveblock>
+				<waveblock start="548300">
+					<simpleblockfile filename="e0000c72.au" len="148020" min="-0.799151" max="0.858107" rms="0.241612"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="2">
+				<controlpoint t="0.000005000000" val="0.000000100000"/>
+				<controlpoint t="12.213696145125" val="1.000000000000"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Audio Track" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="0.015849" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="869610">
+				<waveblock start="0">
+					<simpleblockfile filename="e00005f8.au" len="195795" min="-0.602618" max="0.608945" rms="0.162602"/>
+				</waveblock>
+				<waveblock start="195795">
+					<simpleblockfile filename="e0000cc0.au" len="131072" min="-0.599322" max="0.551078" rms="0.160733"/>
+				</waveblock>
+				<waveblock start="326867">
+					<simpleblockfile filename="e00002bb.au" len="131072" min="-0.54104" max="0.577334" rms="0.156383"/>
+				</waveblock>
+				<waveblock start="457939">
+					<simpleblockfile filename="e0000aa7.au" len="131072" min="-0.608235" max="0.592402" rms="0.174686"/>
+				</waveblock>
+				<waveblock start="589011">
+					<simpleblockfile filename="e0000072.au" len="131072" min="-0.56435" max="0.549283" rms="0.182898"/>
+				</waveblock>
+				<waveblock start="720083">
+					<simpleblockfile filename="e0000183.au" len="131072" min="-0.544056" max="0.587041" rms="0.168227"/>
+				</waveblock>
+				<waveblock start="851155">
+					<simpleblockfile filename="e0000c29.au" len="18455" min="-0.438793" max="0.414206" rms="0.14754"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="2">
+				<controlpoint t="15.603809523810" val="0.915492951870"/>
+				<controlpoint t="18.116870000000" val="0.070422530174"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Audio Track" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="0.015849" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="869610">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000cbb.au" len="195795" min="-0.889156" max="0.855983" rms="0.261422"/>
+				</waveblock>
+				<waveblock start="195795">
+					<simpleblockfile filename="e0000c18.au" len="131072" min="-0.999809" max="0.915423" rms="0.264487"/>
+				</waveblock>
+				<waveblock start="326867">
+					<simpleblockfile filename="e0000d99.au" len="131072" min="-0.77107" max="0.789829" rms="0.232075"/>
+				</waveblock>
+				<waveblock start="457939">
+					<simpleblockfile filename="e0000fe6.au" len="131072" min="-0.865461" max="0.834933" rms="0.221278"/>
+				</waveblock>
+				<waveblock start="589011">
+					<simpleblockfile filename="e0000f94.au" len="131072" min="-0.771557" max="0.809545" rms="0.231337"/>
+				</waveblock>
+				<waveblock start="720083">
+					<simpleblockfile filename="e0000001.au" len="131072" min="-0.919325" max="0.883213" rms="0.252226"/>
+				</waveblock>
+				<waveblock start="851155">
+					<simpleblockfile filename="e00006b3.au" len="18455" min="-0.5065" max="0.606769" rms="0.208621"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="2">
+				<controlpoint t="15.603809523810" val="0.915492951870"/>
+				<controlpoint t="18.116870000000" val="0.070422530174"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+</project>

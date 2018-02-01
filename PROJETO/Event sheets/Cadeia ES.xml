@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Cadeia ES</name>
+    <events>
+        <include>Game Loop</include>
+        <event-block sid="637625979139423">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="274137557076869" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="643980938053248" type="player">
+                    <param id="0" name="Instance variable">açãoAnim</param>
+                    <param id="1" name="Value">&quot;interage&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="330196402123484" type="System">
+                    <param id="0" name="Variable">somAmbiente</param>
+                    <param id="1" name="Value">&quot;cadeia&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="677941583094340">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="168250619750793" type="System">
+                            <param id="0" name="Object">NPCCadeia</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="910193538161489" type="System">
+                            <param id="0" name="Object to create">coneVisaoNPCCadeia</param>
+                            <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                            <param id="2" name="X">NPCCadeia.X</param>
+                            <param id="3" name="Y">NPCCadeia.Y - 150</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="826596888276128" type="coneVisaoNPCCadeia">
+                            <param id="0" name="Pin to">NPCCadeia</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="521101291701882">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="195476627972623" type="System">
+                    <param id="0" name="Interval (seconds)">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="LiteTween2" id="10" name="Start" sid="807827567847957" type="PortaCelas">
+                    <param id="0" name="Start Mode">0</param>
+                    <param id="1" name="Force use current">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="341094756073964" type="System">
+                    <param id="0" name="Seconds">2</param>
+                </action>
+                <action behavior="LiteTween2" id="11" name="Reverse" sid="137621118482006" type="PortaCelas">
+                    <param id="0" name="Reverse mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="114747526394524" title="NPC Patrulha">
+            <sub-events>
+                <event-block sid="809783484158733">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="478675473103774" type="NPCCadeia">
+                            <param id="0" name="Instance variable">Esquerda</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="259386985637500" type="NPCCadeia">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="255170877800110" type="NPCCadeia">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="103646920127106">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="634242282755406" type="NPCCadeia">
+                            <param id="0" name="Instance variable">Esquerda</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="515400010192211" type="NPCCadeia">
+                            <param id="0" name="Angle">0</param>
+                        </action>
+                        <action id="7" name="Set mirrored" sid="928736651418734" type="NPCCadeia">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="156866680609299">
+                    <conditions>
+                        <condition behavior="Bullet" id="0" name="Compare speed" sid="389808834497035" type="NPCCadeia">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Speed">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="859699191505111" type="NPCCadeia">
+                            <param id="0" name="Animation">&quot;i_lado&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="931931136727128">
+                    <conditions>
+                        <condition behavior="Bullet" id="0" name="Compare speed" sid="806099672780965" type="NPCCadeia">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Speed">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="817124200268321" type="NPCCadeia">
+                            <param id="0" name="Animation">&quot;lado&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="924458590355356">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="111776778535731" type="NPCCadeia">
+                            <param id="0" name="Object">hit_destroyBoxes</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="278321156301322" type="NPCCadeia">
+                            <param id="0" name="Speed">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="401455791442326" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="-14" name="Toggle boolean" sid="796547417049426" type="NPCCadeia">
+                            <param id="0" name="Instance variable">Esquerda</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="628150052111573" type="NPCCadeia">
+                            <param id="0" name="Speed">200</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="579086897355016">
+            <conditions>
+                <condition id="7" name="Is mirrored" sid="466161230546179" type="NPCCadeia" />
+                <condition id="1" name="Is overlapping another object" sid="100081354461261" type="coneVisaoNPCCadeia">
+                    <param id="0" name="Object">NPCCadeia</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="837218745040115" type="coneVisaoNPCCadeia">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="569774532461322">
+            <conditions>
+                <condition id="7" inverted="1" name="Is mirrored" sid="375426786401444" type="NPCCadeia" />
+                <condition id="1" name="Is overlapping another object" sid="763954161847620" type="coneVisaoNPCCadeia">
+                    <param id="0" name="Object">NPCCadeia</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="369503612410633" type="coneVisaoNPCCadeia">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="721654685161322">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="473884110762825" type="coneVisaoNPCCadeia">
+                    <param id="0" name="Object">Personagem</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="979015021797062" type="Personagem">
+                    <param id="0" name="Object">walkArea</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="651897756578455" type="System" />
+            </conditions>
+            <actions>
+                <action id="25" name="Play at object" sid="590697392867534" type="Audio">
+                    <param id="0" name="Audio file">apito_161662</param>
+                    <param id="1" name="Loop">0</param>
+                    <param id="2" name="Volume">0</param>
+                    <param id="3" name="Object">coneVisaoNPCCadeia</param>
+                    <param id="4" name="Inner angle">360</param>
+                    <param id="5" name="Outer angle">360</param>
+                    <param id="6" name="Outer gain">0</param>
+                    <param id="7" name="Tag (optional)">&quot;apito&quot;</param>
+                </action>
+                <action id="4" name="Set animation" sid="497883537259504" type="NPCCadeia">
+                    <param id="0" name="Animation">&quot;interage_lado&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="Bullet" id="0" name="Set speed" sid="590462058446296" type="NPCCadeia">
+                    <param id="0" name="Speed">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="793029113720772" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-9" name="Set value" sid="345523275091052" type="System">
+                    <param id="0" name="Variable">proximoLayout</param>
+                    <param id="1" name="Value">&quot;Cadeia&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="431698146485027" type="Function">
+                    <param id="0" name="Name">&quot;trocaLayout&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="682322148402969" title="Escala Layout2">
+            <sub-events>
+                <event-block sid="616923304901940">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="793079138503310" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-20" name="Set layout scale" sid="698823483927353" type="System">
+                            <param id="0" name="Scale">0.7</param>
+                        </action>
+                        <action id="-17" name="Set layer scale" sid="881062784036329" type="System">
+                            <param id="0" name="Layer">&quot;Debug&quot;</param>
+                            <param id="1" name="Scale">1/LayoutScale</param>
+                        </action>
+                        <action id="-17" name="Set layer scale" sid="222245183653202" type="System">
+                            <param id="0" name="Layer">&quot;Vignette&quot;</param>
+                            <param id="1" name="Scale">1/LayoutScale</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="983151370491892">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="584616704415114" type="portaCela2">
+                    <param id="0" name="Object">Personagem</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="513428873121893" type="player">
+                    <param id="0" name="Instance variable">ação</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="249375739120818" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="547762885495968">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="574744088078063" type="player">
+                            <param id="0" name="Instance variable">chave</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="LiteTween" id="10" name="Start" sid="831775168719506" type="portaCela2">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="788442212078221">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="363249216736800" type="player">
+                                    <param id="0" name="Object">pontoDePassagem</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="101134738921590" type="System">
+                                    <param id="0" name="Variable">proximoLayout</param>
+                                    <param id="1" name="Value">pontoDePassagem.proximoLayout</param>
+                                </action>
+                                <action id="0" name="Call function" sid="574868763414252" type="Function">
+                                    <param id="0" name="Name">&quot;trocaLayout&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="275291932720312">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="537852699394794" type="Chave">
+                                    <param id="0" name="Object">Personagem</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="779738144020352" type="Chave" />
+                                <action id="-13" name="Set boolean" sid="505512047208269" type="player">
+                                    <param id="0" name="Instance variable">chave</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="512414736365945">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="352604460315461" type="player">
+                            <param id="0" name="Instance variable">chave</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="25" name="Play at object" sid="886031455152786" type="Audio">
+                            <param id="0" name="Audio file">porta fechada_332963</param>
+                            <param id="1" name="Loop">0</param>
+                            <param id="2" name="Volume">0</param>
+                            <param id="3" name="Object">portaCela2</param>
+                            <param id="4" name="Inner angle">360</param>
+                            <param id="5" name="Outer angle">360</param>
+                            <param id="6" name="Outer gain">0</param>
+                            <param id="7" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

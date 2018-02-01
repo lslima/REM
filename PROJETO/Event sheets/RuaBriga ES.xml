@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>RuaBriga ES</name>
+    <events>
+        <include>Game Loop</include>
+        <variable comment="Vidas do player na briga de rua" constant="0" name="vidasPlayerRuaBriga" sid="325928345026373" static="0" type="number">5</variable>
+        <comment>Seleciona a ação a ser executada por padrão na sala atual</comment>
+        <event-block sid="617024972580829">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="454542441083000" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="998297187260065" type="player">
+                    <param id="0" name="Instance variable">açãoAnim</param>
+                    <param id="1" name="Value">&quot;soco&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="494021072764864" type="System">
+                    <param id="0" name="Variable">somAmbiente</param>
+                    <param id="1" name="Value">&quot;ruas&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="687030597077028">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="812146950074289" type="System" />
+            </conditions>
+            <actions>
+                <action id="-4" name="Set position to another object" sid="773860165672246" type="NPCBrigaFigura">
+                    <param id="0" name="Object">NPCBrigaBase</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="904817973912874" type="NPCBrigaFigura">
+                    <param id="0" name="Pin to">NPCBrigaBase</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+                <action id="-26" name="Move to layer" sid="574063552819889" type="NPCBrigaFigura">
+                    <param id="0" name="Layer">&quot;Layer 0&quot;</param>
+                </action>
+                <action behavior="Pathfinding" id="5" name="Add obstacle" sid="369668666811588" type="NPCBrigaBase">
+                    <param id="0" name="Obstacle">NPCBrigaFigura</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="Seleciona as animações de acordo com a rotação da base do NPC" sid="309877026306113" title="Animações">
+            <sub-events>
+                <variable constant="0" name="arcoDeAnimações" sid="938383646290508" static="0" type="number">45</variable>
+                <event-block sid="594143503488067">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="363566171956690" type="NPCBrigaBase">
+                            <param id="0" name="Instance variable">ação</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="804247105103802">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="695340397707589" type="NPCBrigaBase">
+                                    <param id="0" name="Within">arcoDeAnimações</param>
+                                    <param id="1" name="Angle">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="486631017588697">
+                                    <conditions>
+                                        <condition behavior="Pathfinding" id="4" name="Is moving along path" sid="167409290184782" type="NPCBrigaBase" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="515949124491562" type="NPCBrigaFigura">
+                                            <param id="0" name="Animation">&quot;lado&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="7" name="Set mirrored" sid="882088164648767" type="NPCBrigaFigura">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="649763497660665">
+                                    <conditions>
+                                        <condition behavior="Pathfinding" id="4" inverted="1" name="Is moving along path" sid="584942564561888" type="NPCBrigaBase" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="441516615253466" type="NPCBrigaFigura">
+                                            <param id="0" name="Animation">&quot;i_lado&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="7" name="Set mirrored" sid="540170152253942" type="NPCBrigaFigura">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="426311915022073">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="286983069533933" type="NPCBrigaBase">
+                                    <param id="0" name="Within">arcoDeAnimações</param>
+                                    <param id="1" name="Angle">180</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="171577009446362">
+                                    <conditions>
+                                        <condition behavior="Pathfinding" id="4" name="Is moving along path" sid="731770549571415" type="NPCBrigaBase" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="477961991005391" type="NPCBrigaFigura">
+                                            <param id="0" name="Animation">&quot;lado&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="7" name="Set mirrored" sid="366048495873480" type="NPCBrigaFigura">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="653472807557203">
+                                    <conditions>
+                                        <condition behavior="Pathfinding" id="4" inverted="1" name="Is moving along path" sid="427366372434475" type="NPCBrigaBase" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="283739731716580" type="NPCBrigaFigura">
+                                            <param id="0" name="Animation">&quot;i_lado&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="7" name="Set mirrored" sid="857116515731496" type="NPCBrigaFigura">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="134246092998458">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="839450670228885" type="NPCBrigaBase">
+                                    <param id="0" name="Within">arcoDeAnimações</param>
+                                    <param id="1" name="Angle">90</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="262090910914032">
+                                    <conditions>
+                                        <condition behavior="Pathfinding" id="4" name="Is moving along path" sid="959944596675815" type="NPCBrigaBase" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="850107476875329" type="NPCBrigaFigura">
+                                            <param id="0" name="Animation">&quot;frente&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="422789016936419">
+                                    <conditions>
+                                        <condition behavior="Pathfinding" id="4" inverted="1" name="Is moving along path" sid="779358303480889" type="NPCBrigaBase" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="142549464094240" type="NPCBrigaFigura">
+                                            <param id="0" name="Animation">&quot;i_frente&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="423963181018950">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="595525224951044" type="NPCBrigaBase">
+                                    <param id="0" name="Within">arcoDeAnimações</param>
+                                    <param id="1" name="Angle">270</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="618319572078301">
+                                    <conditions>
+                                        <condition behavior="Pathfinding" id="4" name="Is moving along path" sid="349861411930343" type="NPCBrigaBase" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="143515647203961" type="NPCBrigaFigura">
+                                            <param id="0" name="Animation">&quot;tras&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="813264871093628">
+                                    <conditions>
+                                        <condition behavior="Pathfinding" id="4" inverted="1" name="Is moving along path" sid="617127985186389" type="NPCBrigaBase" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="612531030819198" type="NPCBrigaFigura">
+                                            <param id="0" name="Animation">&quot;i_tras&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="271658410870308">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="140587986160353" type="NPCBrigaBase">
+                            <param id="0" name="Instance variable">ação</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="167156847004625">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="862938758098663" type="NPCBrigaBase">
+                                    <param id="0" name="Within">arcoDeAnimações</param>
+                                    <param id="1" name="Angle">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="157714661058268" type="NPCBrigaFigura">
+                                    <param id="0" name="Animation">&quot;soco_lado&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="166483485142648" type="NPCBrigaFigura">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="779617397183161">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="389715568297897" type="NPCBrigaBase">
+                                    <param id="0" name="Within">arcoDeAnimações</param>
+                                    <param id="1" name="Angle">180</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="890417451942055" type="NPCBrigaFigura">
+                                    <param id="0" name="Animation">&quot;soco_lado&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="121555237581673" type="NPCBrigaFigura">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="131934770572684">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="706472351493673" type="NPCBrigaBase">
+                                    <param id="0" name="Within">arcoDeAnimações</param>
+                                    <param id="1" name="Angle">90</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="652470827411508" type="NPCBrigaFigura">
+                                    <param id="0" name="Animation">&quot;soco_frente&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="937466010884632">
+                            <conditions>
+                                <condition id="-11" name="Is within angle" sid="210243470629911" type="NPCBrigaBase">
+                                    <param id="0" name="Within">arcoDeAnimações</param>
+                                    <param id="1" name="Angle">270</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="633344668770535" type="NPCBrigaFigura">
+                                    <param id="0" name="Animation">&quot;soco_tras&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <variable comment="tamanho da área de decisão de caminho" constant="0" name="arredoresNPC" sid="731409776885286" static="0" type="number">600</variable>
+        <event-block sid="672811132582580">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="114890586107904" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="163521425271867" type="TextDebugLocal">
+                    <param id="0" name="Text">vidasPlayerRuaBriga</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="361377913543921" title="AchaPlayer">
+            <sub-events>
+                <event-block sid="770551440937002">
+                    <conditions>
+                        <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="149713029565147" type="NPCBrigaBase">
+                            <param id="0" name="Object">Personagem</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="493082273102855" type="NPCBrigaBase">
+                            <param id="0" name="Instance variable">hlos</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="971621660298506">
+                    <conditions>
+                        <condition behavior="LineOfSight" id="0" inverted="1" name="Has LOS to object" sid="868494124039745" type="NPCBrigaBase">
+                            <param id="0" name="Object">Personagem</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="210384811522819" type="NPCBrigaBase">
+                            <param id="0" name="Instance variable">hlos</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="374572434364436">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="717063290614504" type="NPCBrigaBase">
+                            <param id="0" name="Instance variable">hlos</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="452459248493871">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="365562052190159" type="System">
+                                    <param id="0" name="Interval (seconds)">random(3,5)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="0" name="Find path" sid="890253670377054" type="NPCBrigaBase">
+                                    <param id="0" name="X">random(NPCBrigaBase.X -arredoresNPC, NPCBrigaBase.X+arredoresNPC)</param>
+                                    <param id="1" name="Y">random(NPCBrigaBase.Y -arredoresNPC, NPCBrigaBase.Y+arredoresNPC)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="359496717072035">
+                            <conditions>
+                                <condition behavior="Pathfinding" id="0" name="On path found" sid="420255113413687" type="NPCBrigaBase" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="1" name="Move along path" sid="126943418893053" type="NPCBrigaBase" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="722300025279348">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="627916462736139" type="NPCBrigaBase">
+                            <param id="0" name="Instance variable">hlos</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="252927505782690">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="491374191865806" type="System">
+                                    <param id="0" name="Interval (seconds)">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="0" name="Find path" sid="647929385645343" type="NPCBrigaBase">
+                                    <param id="0" name="X">Personagem.X</param>
+                                    <param id="1" name="Y">Personagem.Y</param>
+                                </action>
+                                <action behavior="Pathfinding" id="4" name="Regenerate obstacle map" sid="904464150846309" type="NPCBrigaBase" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="575586132603004">
+                            <conditions>
+                                <condition behavior="Pathfinding" id="1" name="On failed to find path" sid="684894079144206" type="NPCBrigaBase" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="0" name="Find path" sid="174347938435152" type="NPCBrigaBase">
+                                    <param id="0" name="X">random (Personagem.X -60, Personagem.X + 60)</param>
+                                    <param id="1" name="Y">random (Personagem.Y -60, Personagem.Y +60)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="510113458274745">
+                            <conditions>
+                                <condition behavior="Pathfinding" id="0" name="On path found" sid="132778602253519" type="NPCBrigaBase" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="1" name="Move along path" sid="480041031832461" type="NPCBrigaBase" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="156651349286630">
+            <conditions>
+                <condition id="9" name="Is overlapping at offset" sid="776974416398607" type="NPCBrigaFigura">
+                    <param id="0" name="Object">player</param>
+                    <param id="1" name="Offset X">10</param>
+                    <param id="2" name="Offset Y">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="2" name="Stop" sid="810536089969051" type="NPCBrigaBase" />
+                <action id="-13" name="Set boolean" sid="530474260073977" type="NPCBrigaBase">
+                    <param id="0" name="Instance variable">ação</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-3" name="Create object" sid="803621396575600" type="System">
+                    <param id="0" name="Object to create">hit_destroyBoxes</param>
+                    <param id="1" name="Layer">&quot;Layer 0&quot;</param>
+                    <param id="2" name="X">NPCBrigaBase.X</param>
+                    <param id="3" name="Y">NPCBrigaBase.Y</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="891619549340057" type="hit_destroyBoxes">
+                    <param id="0" name="Object">NPCBrigaFigura</param>
+                    <param id="1" name="Image point (optional)">1</param>
+                </action>
+                <action id="-7" name="Set size" sid="141684666939136" type="hit_destroyBoxes">
+                    <param id="0" name="Width">20</param>
+                    <param id="1" name="Height">20</param>
+                </action>
+                <action id="-16" name="Wait" sid="918934393062679" type="System">
+                    <param id="0" name="Seconds">0</param>
+                </action>
+                <action id="-9" name="Destroy" sid="860035056008685" type="hit_destroyBoxes" />
+                <action id="-16" name="Wait" sid="534221040711710" type="System">
+                    <param id="0" name="Seconds">1</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="126430336823580" type="NPCBrigaBase">
+                    <param id="0" name="Instance variable">ação</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="771175389408630">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="280144723384210" type="Personagem">
+                    <param id="0" name="Object">hit_destroyBoxes</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="716050628233794" type="System" />
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="291226651378077" type="System">
+                    <param id="0" name="Variable">vidasPlayerRuaBriga</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="137840038365905">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="295808026313911" type="player">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="X co-ordinate">hit_destroyBoxes.X</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="641918653160607" type="player">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">1</param>
+                            <param id="2" name="Value">-100</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="558178887752391" type="player">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="243896756767022">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="875671647370033" type="player">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="X co-ordinate">hit_destroyBoxes.X</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="LiteTween" id="3" name="Set target" sid="268027589478491" type="player">
+                            <param id="0" name="Target is">0</param>
+                            <param id="1" name="Relativity">1</param>
+                            <param id="2" name="Value">100</param>
+                        </action>
+                        <action behavior="LiteTween" id="10" name="Start" sid="748047997882632" type="player">
+                            <param id="0" name="Start Mode">0</param>
+                            <param id="1" name="Force use current">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="992399435709583">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="221892645311545" type="System">
+                    <param id="0" name="Variable">vidasPlayerRuaBriga</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="549343839284320" type="System">
+                    <param id="0" name="Variable">proximoLayout</param>
+                    <param id="1" name="Value">&quot;Labirinto 2&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="564117684428163" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action id="0" name="Call function" sid="267246897962619" type="Function">
+                    <param id="0" name="Name">&quot;trocaLayout&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
